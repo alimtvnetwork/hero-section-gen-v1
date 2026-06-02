@@ -72,3 +72,4 @@ These are areas I've **not yet audited deeply**; each likely produces 3–8 more
 - 2026-06-02 — Phase 0: created spec-issues folder, headline verdict, 15-phase plan, queued discovery passes.
 - 2026-06-02 — Phase 16 (discovery pass 2): logged findings 8–17 in `PHASE-16-discovery-pass-2.md`; queued 14 more digging passes.
 - 2026-06-02 — Phase 17 (discovery pass 3): logged findings 18–27 in `PHASE-17-discovery-pass-3.md`; queued 16 more digging passes.
+- 2026-06-02 — Phase 18 (discovery pass 4): logged findings 28–37 in `PHASE-18-discovery-pass-4.md`; queued 20 more digging passes.
