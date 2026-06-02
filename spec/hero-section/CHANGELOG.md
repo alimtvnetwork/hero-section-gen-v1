@@ -1,0 +1,34 @@
+# Hero Section Spec — Changelog
+
+Format: [semver](https://semver.org). Breaking visual or schema changes → MAJOR. Additive sections → MINOR. Typo/clarification → PATCH.
+
+## 1.0.0 — 2026-06-02
+
+**First AI-shippable cut. Closes Phase 0 audit, batch 1 (steps 1–10).**
+
+### Added
+- `00-INDEX.md` — canonical entry point, reading order, source-of-truth table.
+- `CONVENTIONS.md` — naming rules for events, flags, files, CSS vars, components.
+- `TOKENS.md` — single source for color/space/motion/type tokens, Tailwind v4 + oklch.
+- `CHANGELOG.md` — this file.
+- `THREEJS-FALLBACK.md` — SSR/no-WebGL/reduced-motion fallback decision and rule.
+- `ARCHIVED.md` — explicit list of spec sections that are no longer in scope.
+
+### Changed
+- `SPEC.md`: image reference `./01-hero.png` → `./00-hero-canonical.png`.
+- `SPEC-PART-2.md`: same image-ref fix.
+- `SPEC.md`, `SPEC-PART-3.md`, `SPEC-PART-4.md`: badge copy unified on `Top 5% Vetted Engineer` (matches canonical reference image).
+- `SPEC.md` header now points to `00-INDEX.md` as the entry point and declares semver/version.
+
+### Deprecated (still in repo for history)
+- GAP-ANALYSIS.md as an override layer. All deltas promoted into SPEC.md.
+- SPEC-PART-2.md §17 (flowchart) and §23 (in-hero logo strip) — see `ARCHIVED.md`.
+- Tailwind v3 token block in SPEC §2 — superseded by `TOKENS.md`.
+
+### Findings closed (from `spec-issues/`)
+- #2 broken image ref · #3 Top 5%/1% reconciliation · #4 conventions undefined
+- #5 token drift · #6 archived elements · #7 no TOC · #8 no version/changelog
+- #9 time-format normalization (in progress, see Phase 1 below) · #10 Three.js fallback
+
+### Time-format normalization
+All spec time estimates now use `Xh Ym` (e.g. `1h 15m`), never `75 min`. Sweep applied across PART-2..6 in this release. Lint rule lives in `CONVENTIONS.md` future revision.
