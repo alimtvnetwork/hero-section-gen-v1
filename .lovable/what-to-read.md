@@ -22,6 +22,8 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 6. **`.lovable/suggestions.md`** — open + implemented suggestions.
 7. **`.lovable/cicd-index.md`** — known CI/CD issues; don't re-debug them.
 8. **`.lovable/prompts/index.md`** — registry of reusable prompts.
+8b. **`prompts/00-index.md`** (root) — REUSABLE IMAGE → SPEC → AUDIT → NEXT-10
+    process. When the user gives an image and says "follow the prompt", start here.
 9. **`.lovable/memory/index.md`** — master index. Every memory file is
    listed here; if not, it's an orphan — fix it.
 10. **`.lovable/memory/workflow/`** — current in-progress workflow state.
