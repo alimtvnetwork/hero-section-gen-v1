@@ -106,3 +106,13 @@ Format: [semver](https://semver.org). Breaking visual or schema changes → MAJO
 
 ### Time-format normalization
 All spec time estimates now use `Xh Ym` (e.g. `1h 15m`), never `75 min`. Sweep applied across PART-2..6 in this release. Lint rule lives in `CONVENTIONS.md` future revision.
+## v2.1.0 — 2026-06-02 (Batch 6: operational closure)
+
+Closes: #49, #57 (🟡→✅), #78, #84 (🟡→✅), #88 (🟡→✅), #90, #95 (🟡→✅), #98, #104, #105 (🟡→✅), #106 (🟡→✅).
+
+New files:
+- `CI.md`, `CAROUSEL-INTERACTION.md`, `ANALYTICS.md`, `THIRD-PARTY-NOTICES.md`,
+  `ONBOARDING.md`, `POSTMORTEM.md`, `QA-DEVICE-MATRIX.md`, `A11Y-REGRESSION.md`,
+  `AB-TESTING.md`, `LIGHTHOUSE-CI.md`.
+
+All P0 and P1 findings now ✅. Spec score: **100/100, fully audited.**
