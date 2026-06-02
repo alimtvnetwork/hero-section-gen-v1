@@ -1,0 +1,29 @@
+# CI Pipeline Contract — Hero Section
+
+**Owner:** Platform · **Status:** Required · **Closes:** #98
+
+## Required jobs (GitHub Actions, blocking on PR to `main`)
+
+| Job | Tool | Gate | Timeout |
+|---|---|---|---|
+| `install` | `bun install --frozen-lockfile` | lockfile clean | 3m |
+| `typecheck` | `tsc --noEmit` | 0 errors | 3m |
+| `lint` | `eslint . --max-warnings=0` | 0 warn | 2m |
+| `unit` | `bun test` | 100% pass | 3m |
+| `build` | `bun run build` | exit 0 | 5m |
+| `bundle-budget` | `size-limit` | see `BUDGETS.md` | 1m |
+| `lighthouse` | `lhci autorun` | see `LIGHTHOUSE-CI.md` | 6m |
+| `a11y` | `axe-core` via Playwright | 0 violations | 4m |
+| `visual` | Chromatic / Playwright snapshots | see `SNAPSHOTS.md` | 8m |
+| `audit` | `bun audit --audit-level=high` | 0 high+ | 1m |
+| `secrets-scan` | `gitleaks` | 0 leaks | 1m |
+
+## Required for merge
+All jobs above + ≥1 CODEOWNER approval.
+
+## Concurrency
+`concurrency: ci-${{ github.ref }}`, `cancel-in-progress: true`.
+
+## Artifact retention
+- Lighthouse reports: 30d · Bundle stats: 90d · Visual diffs: 14d
+- Source maps uploaded to Sentry then deleted from artifact (see `SOURCE-MAPS.md`).
