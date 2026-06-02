@@ -1,8 +1,12 @@
 # Hero Section — Implementation Spec
 
-Reference image: `./00-hero-canonical.png`
+**Spec version:** 1.0.0 · **Entry point:** [`00-INDEX.md`](./00-INDEX.md) · **Tokens:** [`TOKENS.md`](./TOKENS.md) · **Conventions:** [`CONVENTIONS.md`](./CONVENTIONS.md) · **Changelog:** [`CHANGELOG.md`](./CHANGELOG.md)
 
-Target stack: **HTML + Tailwind CSS** (utility classes), optional **Three.js** for the subtle background particle field, optional **Framer Motion / GSAP** for entrance + carousel animations. Output must be pixel-faithful to the reference at a 1440×900 desktop viewport, and gracefully responsive below 1024px.
+> **Stop.** If you have not read `00-INDEX.md`, read it first. This file is one of seven; reading it standalone produces the wrong design.
+
+Reference image: `./00-hero-canonical.png` (canonical). Archived variant: `./01-hero-variant-archived.png` — do NOT build.
+
+Target stack: **TanStack Start + React 19 + Tailwind v4** (`@theme` in `src/styles.css`, oklch tokens — see `TOKENS.md`). Three.js particles are **optional progressive enhancement** per `THREEJS-FALLBACK.md`. Motion via `framer-motion`. Output must be pixel-faithful to `00-hero-canonical.png` at 1440×900 desktop, and gracefully responsive at 1024 / 768 / 375 (canonical snapshots in `snapshots/`).
 
 ---
 
