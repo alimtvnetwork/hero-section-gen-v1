@@ -19,15 +19,15 @@
 **Why fails:** AI either omits `<noscript>` entirely or fills it with a "Please enable JavaScript" banner — both hurt SEO + a11y.
 **Time:** **15 min** — spec exact `<noscript>` markup: replicate above-the-fold text + first engineer's portrait + both CTAs (anchor tags). Hide controls (carousel, particles) via `<noscript><style>...</style></noscript>`.
 
-## 51. CODEOWNERS for `spec/hero-section/` missing
-**What:** No `.github/CODEOWNERS` entry. Anyone can merge spec changes; design, copy, legal, and engineering reviews aren't enforced. Part 5 §50 sunset triggers and Part 6 §55 a11y assertions have no review gate.
+## 51. 37-codeowners.md for `spec/01-rise-of-asia/01-homepage-hero-section/` missing
+**What:** No `.github/37-codeowners.md` entry. Anyone can merge spec changes; design, copy, legal, and engineering reviews aren't enforced. Part 5 §50 sunset triggers and Part 6 §55 a11y assertions have no review gate.
 **Why fails:** Drift accumulates between phases; copy ships without legal review; tokens edited by a backend dev breaks design.
-**Time:** **15 min** — `.github/CODEOWNERS`: `spec/hero-section/` → `@design-lead @copy-lead @a11y-lead`; `tokens/` → `@design-lead`; `src/components/Hero/**` → `@frontend-lead @design-lead`.
+**Time:** **15 min** — `.github/37-codeowners.md`: `spec/01-rise-of-asia/01-homepage-hero-section/` → `@design-lead @copy-lead @a11y-lead`; `tokens/` → `@design-lead`; `src/components/Hero/**` → `@frontend-lead @design-lead`.
 
 ## 52. Glossary missing — visual-effect terms used interchangeably
 **What:** "Rim light" (SPEC §0, Part 2 §18), "hot edge" (Part 2 §18 sub-layer B), "halo" (sub-layer A), "amber wash" (GAP §11 Layer C), "warm side" (GAP §portrait-swap-contract), "glow", "breathe" — referring to overlapping but non-identical concepts. No glossary; readers conflate.
 **Why fails:** AI implements one layer for all five terms → washed-out look; or implements five layers that double up → muddy gradient.
-**Time:** **15 min** — `GLOSSARY.md`: each term → 1-sentence definition + which CSS layer/token it maps to + a thumbnail showing it isolated.
+**Time:** **15 min** — `03-glossary.md`: each term → 1-sentence definition + which CSS layer/token it maps to + a thumbnail showing it isolated.
 
 ## 53. Canonical image versioning policy
 **What:** Marketing will swap the featured engineer eventually. `00-hero-canonical.png` will be overwritten? Versioned `00-hero-canonical-v2.png`? Git history is technically a version log but spec consumers don't read git. GAP-ANALYSIS overrides reference "the canonical" — after swap, do they still apply?

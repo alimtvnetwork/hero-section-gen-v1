@@ -7,7 +7,7 @@
 ## 68. Component anatomy doc is missing
 **What:** The spec describes many visual pieces — eyebrow, H1, italic accent, stat chips, portrait, rim light, carousel controls, CTAs — but there is no labeled anatomy diagram mapping each visible element to its prop, token, analytics event, and acceptance rule.
 **Why fails:** A blind AI cannot tell which visual detail is decorative vs contractually required; it may rename props, collapse layers, or omit analytics hooks because the visual/component boundary is implicit.
-**Time:** **20 min** — add `HERO-ANATOMY.md` with a numbered screenshot overlay and table: element → prop/data source → token(s) → behavior → test/assertion.
+**Time:** **20 min** — add `05-hero-anatomy.md` with a numbered screenshot overlay and table: element → prop/data source → token(s) → behavior → test/assertion.
 
 ## 69. Canonical snapshots only cover one viewport
 **What:** The repo has one canonical hero image, but the spec requires responsive behavior at 1440/1024/768/375. There are no canonical references for tablet or mobile, where layout decisions are most likely to diverge.

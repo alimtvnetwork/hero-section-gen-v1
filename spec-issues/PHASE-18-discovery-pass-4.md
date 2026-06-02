@@ -85,7 +85,7 @@ Each likely yields 4–8 more issues:
 15. **Three.js fallback for SSR** — particles use canvas (browser-only); SSR renders nothing; no spec for placeholder during hydration.
 16. **Touch / pointer events on carousel** — swipe support? No spec. Mobile users expect swipe.
 17. **`<noscript>` content** — §32 mentions; no actual `<noscript>` block content spec.
-18. **Spec ownership / RACI** — who reviews changes? Who can merge? No CODEOWNERS for `spec/hero-section/`.
+18. **Spec ownership / RACI** — who reviews changes? Who can merge? No 37-codeowners.md for `spec/01-rise-of-asia/01-homepage-hero-section/`.
 19. **Glossary** — "rim light", "hot edge", "halo", "amber wash", "warm side" used interchangeably; reader confusion.
 20. **Versioning of canonical image** — if marketing swaps the portrait, does `00-hero-canonical.png` get overwritten or versioned (`00-hero-canonical-v2.png`)?
 

@@ -57,7 +57,7 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 ## 86. Copy source ownership unclear
 - **What:** Hero copy (headline, lede, CTAs, testimonial quotes) has no named owner or change-approval flow.
 - **Why AI fails:** AI rewrites copy mid-task; legal-sensitive claims ("Top 1%") changed without review.
-- **Fix:** `COPY-OWNERS.md` — owner per string, approval path, legal-review trigger keywords.
+- **Fix:** `38-copy-owners.md` — owner per string, approval path, legal-review trigger keywords.
 - **Time:** **15 min**
 
 ## 87. Dependency allowlist missing

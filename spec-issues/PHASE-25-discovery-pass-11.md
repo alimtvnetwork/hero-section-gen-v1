@@ -9,7 +9,7 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 ## 98. CI pipeline contract missing
 - **What:** No documented CI stages (typecheck → lint → test → build → a11y → lighthouse → visual-diff) or order/parallelism rules.
 - **Why AI fails:** Adds a GitHub Action that runs only `npm test`; Lighthouse/axe gates from earlier phases never enforced.
-- **Fix:** `CI.md` — stage table with timeouts, required-vs-advisory, cache keys, artifact retention.
+- **Fix:** `47-ci.md` — stage table with timeouts, required-vs-advisory, cache keys, artifact retention.
 - **Time:** **25 min**
 
 ## 99. Preview deploy URL convention undefined
@@ -21,7 +21,7 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 ## 100. Secret rotation policy missing
 - **What:** Calendly key, CMS token, CDN signing key, analytics write-key — no rotation cadence or revocation runbook.
 - **Why AI fails:** Secrets live in `.env` forever; on incident, nobody knows where they're used.
-- **Fix:** `SECRETS.md` — owner, rotation interval (90 d default), break-glass procedure, usage inventory.
+- **Fix:** `35-secrets.md` — owner, rotation interval (90 d default), break-glass procedure, usage inventory.
 - **Time:** **20 min**
 
 ## 101. Supply-chain pinning undefined
@@ -43,7 +43,7 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 - **Time:** **15 min**
 
 ## 104. License/attribution file missing
-- **What:** Fonts, icons, portraits, npm OSS — no `THIRD-PARTY-NOTICES.md`.
+- **What:** Fonts, icons, portraits, npm OSS — no `50-third-party-notices.md`.
 - **Why AI fails:** MIT/Apache attribution clauses violated; potential takedown.
 - **Fix:** Auto-generated notices via `license-checker`; committed; PR-gated.
 - **Time:** **15 min**
@@ -57,13 +57,13 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 ## 106. Onboarding doc for new contributors missing
 - **What:** No "day-1" path: clone → install → run → first PR → spec map.
 - **Why AI fails:** New AI session or new dev re-discovers conventions and writes against archived spec sections.
-- **Fix:** `ONBOARDING.md` — 30-min path with links to CONVENTIONS, GLOSSARY, 00-INDEX, this audit log.
+- **Fix:** `51-onboarding.md` — 30-min path with links to CONVENTIONS, GLOSSARY, 00-INDEX, this audit log.
 - **Time:** **20 min**
 
 ## 107. Definition of Done for hero feature missing
 - **What:** No explicit checklist that says "this hero is shippable": all P0s closed, canonical diff = 0, Lighthouse ≥ 95, axe = 0 violations, copy approved, owners signed off.
 - **Why AI fails:** AI declares "done" after visual match; ignores governance/perf/legal gates.
-- **Fix:** `DEFINITION-OF-DONE.md` — 12 checkbox gates, each linked to its owner + evidence artifact path.
+- **Fix:** `46-definition-of-done.md` — 12 checkbox gates, each linked to its owner + evidence artifact path.
 - **Time:** **20 min**
 
 ---

@@ -30,7 +30,7 @@
 **Time:** **15 min** — table mapping SPEC breakpoints → Tailwind tokens (`lg:`, `xl:`); rewrite §11 in token language.
 
 ## 13. Referenced files do not exist
-**What:** SPEC parts reference `analytics/events.md` (Part 3 §29 twice), `CHANGELOG.md` (Part 5 §45, §32), `RUNBOOK.md` (Part 5 §53), `messages.en.json` (Part 3 §27), `engineer.functions.ts` (implied by Part 3 §host). None exist; no folder structure proposed for them either.
+**What:** SPEC parts reference `analytics/events.md` (Part 3 §29 twice), `21-changelog.md` (Part 5 §45, §32), `RUNBOOK.md` (Part 5 §53), `messages.en.json` (Part 3 §27), `engineer.functions.ts` (implied by Part 3 §host). None exist; no folder structure proposed for them either.
 **Why fails:** AI either creates them with hallucinated content or skips entire sections silently.
 **Time:** **20 min** — file-manifest table: path → owner phase → empty scaffold OK / required content. Don't create files, just declare the manifest.
 
@@ -50,9 +50,9 @@
 **Time:** **20 min** — one canonical React snippet for the portrait + one TanStack `head()` example with preload link.
 
 ## 17. Acceptance checklist in SPEC §"final" mixes MVP and aspirational
-**What:** SPEC.md final checklist (`[ ]` items L262–265) blends `Lighthouse a11y ≥ 95` (MVP-gate) with `Layout collapses gracefully at 1024, 768, 375` (MVP), but is missing all of Parts 5/6 items even though some (e.g. kill-switch flag, CHANGELOG entry) are clearly launch-blockers per Part 5 §54.
-**Why fails:** "Launch gate" is in two places (SPEC.md final + Part 5 §54) with different items. AI launches by checking the smaller list and misses the bigger one.
-**Time:** **15 min** — collapse into one launch-gate doc; SPEC.md checklist links to it.
+**What:** 13-spec.md final checklist (`[ ]` items L262–265) blends `Lighthouse a11y ≥ 95` (MVP-gate) with `Layout collapses gracefully at 1024, 768, 375` (MVP), but is missing all of Parts 5/6 items even though some (e.g. kill-switch flag, CHANGELOG entry) are clearly launch-blockers per Part 5 §54.
+**Why fails:** "Launch gate" is in two places (13-spec.md final + Part 5 §54) with different items. AI launches by checking the smaller list and misses the bigger one.
+**Time:** **15 min** — collapse into one launch-gate doc; 13-spec.md checklist links to it.
 
 ---
 

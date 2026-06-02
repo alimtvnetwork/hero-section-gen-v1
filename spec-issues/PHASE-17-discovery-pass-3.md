@@ -26,7 +26,7 @@
 **Time:** **25 min** — ADR: pick provider (recommend PostHog since analytics already uses it per §29), write hook contract signature + 5-line stub, mark live impl as v1.1.
 
 ## 22. Spec files lack `version:` frontmatter — GAP overrides have no anchor
-**What:** SPEC.md, all Part files, and GAP-ANALYSIS.md are plain markdown with no YAML frontmatter. GAP says "overrides SPEC §6.1" but doesn't say *which version* of §6.1. After Phase 1 (promote GAP into SPEC), the override pointers go stale silently.
+**What:** 13-spec.md, all Part files, and 20-gap-analysis.md are plain markdown with no YAML frontmatter. GAP says "overrides SPEC §6.1" but doesn't say *which version* of §6.1. After Phase 1 (promote GAP into SPEC), the override pointers go stale silently.
 **Why fails:** Spec drift accumulates with no provenance trail; reviewers can't tell if a contradiction is a real bug or a stale reference.
 **Time:** **15 min** — add `version: 1.0.0`, `lastUpdated: 2026-06-02`, `supersedes: []` frontmatter to every spec file; GAP entries cite both file + version.
 

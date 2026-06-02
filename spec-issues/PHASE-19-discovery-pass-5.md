@@ -71,7 +71,7 @@ Each likely yields 3–6 more issues:
 1. **Three.js SSR fallback** — canvas browser-only; no spec for placeholder during hydration.
 2. **Touch / swipe support on carousel** — mobile users expect swipe; not specified.
 3. **`<noscript>` content** — §32 mentions; no actual block content.
-4. **Spec ownership / CODEOWNERS** for `spec/hero-section/`.
+4. **Spec ownership / 37-codeowners.md** for `spec/01-rise-of-asia/01-homepage-hero-section/`.
 5. **Glossary** — rim light / hot edge / halo / wash / warm side used interchangeably.
 6. **Versioning canonical image** — overwrite vs `00-hero-canonical-v2.png`?
 7. **Font loading strategy** — `font-display`, fallback metric matching (CLS=0 needs it).

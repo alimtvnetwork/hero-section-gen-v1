@@ -63,7 +63,7 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 ## 97. Spec priority labels (P0/P1/P2) not applied across 87 findings
 - **What:** Findings 1–87 lack uniform priority labels; "next" order is implicit.
 - **Why AI fails:** Without P0/P1/P2, teams cherry-pick easy items and leave shipping blockers.
-- **Fix:** Add a `PRIORITIES.md` table: every finding tagged P0 (ship-blocker) / P1 (pre-launch) / P2 (post-launch). One owner per P0.
+- **Fix:** Add a `45-priorities.md` table: every finding tagged P0 (ship-blocker) / P1 (pre-launch) / P2 (post-launch). One owner per P0.
 - **Time:** **30 min**
 
 ---
