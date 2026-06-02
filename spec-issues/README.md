@@ -2,7 +2,7 @@
 
 **Scope audited:** `spec/hero-section/` (SPEC.md, SPEC-PART-2..6.md, GAP-ANALYSIS.md).
 **Mode:** discovery only — NO fixes applied. Fixes happen one phase at a time when user says "next".
-**Last updated:** 2026-06-02 (Phase 24 — discovery pass 10, final)
+**Last updated:** 2026-06-02 (Phase 25 — discovery pass 11)
 
 ## How this folder works
 
@@ -79,3 +79,4 @@ These are areas I've **not yet audited deeply**; each likely produces 3–8 more
 - 2026-06-02 — Phase 22 (discovery pass 8): logged findings 68–77 in `PHASE-22-discovery-pass-8.md`; queued 20 more digging passes.
 - 2026-06-02 — Phase 23 (discovery pass 9): logged findings 78–87 in `PHASE-23-discovery-pass-9.md`; 10 passes remaining in queue.
 - 2026-06-02 — Phase 24 (discovery pass 10, final): logged findings 88–97 in `PHASE-24-discovery-pass-10.md`; **discovery queue empty**. 97 findings total.
+- 2026-06-02 — Phase 25 (discovery pass 11): opened new dig surface (CI/supply-chain/observability/process); logged findings 98–107 in `PHASE-25-discovery-pass-11.md`; queued 10 new passes.
