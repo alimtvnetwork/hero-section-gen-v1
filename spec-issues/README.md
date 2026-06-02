@@ -2,7 +2,7 @@
 
 **Scope audited:** `spec/hero-section/` (SPEC.md, SPEC-PART-2..6.md, GAP-ANALYSIS.md).
 **Mode:** discovery only — NO fixes applied. Fixes happen one phase at a time when user says "next".
-**Last updated:** 2026-06-02 (Phase 22 — discovery pass 8)
+**Last updated:** 2026-06-02 (Phase 23 — discovery pass 9)
 
 ## How this folder works
 
@@ -77,3 +77,4 @@ These are areas I've **not yet audited deeply**; each likely produces 3–8 more
 - 2026-06-02 — Phase 20 (discovery pass 6): logged findings 48–57 in `PHASE-20-discovery-pass-6.md`; queued 20 more digging passes.
 - 2026-06-02 — Phase 21 (discovery pass 7): logged findings 58–67 in `PHASE-21-discovery-pass-7.md`; queued 20 more digging passes.
 - 2026-06-02 — Phase 22 (discovery pass 8): logged findings 68–77 in `PHASE-22-discovery-pass-8.md`; queued 20 more digging passes.
+- 2026-06-02 — Phase 23 (discovery pass 9): logged findings 78–87 in `PHASE-23-discovery-pass-9.md`; 10 passes remaining in queue.
