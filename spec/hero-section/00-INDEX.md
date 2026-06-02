@@ -29,6 +29,14 @@
 21. **`GAP-ANALYSIS.md`** — historical record; **no longer overrides**.
 22. **`CHANGELOG.md`** — versioned diff log.
 
+### Visual/a11y/perf supplements (Batch 3)
+
+- **`SNAPSHOTS.md`** — canonical visual-regression matrix.
+- **`MOTION.md`** — full-motion + reduced-motion table.
+- **`A11Y.md`** — AAA contrast proofs + carousel ARIA + focus order + Calendly focus.
+- **`FONTS.md`** — self-hosted WOFF2 + metric matching, CLS=0 rule.
+- **`HEAD-META.md`** — root vs leaf head, `color-scheme: dark`, LCP preload.
+
 ## Source of truth (resolves all contradictions)
 
 | Domain | Canonical file | Anything else is stale |

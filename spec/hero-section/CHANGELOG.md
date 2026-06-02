@@ -1,3 +1,17 @@
+## 1.2.0 — 2026-06-02 (Batch 3, steps 21–30)
+
+### Added
+- `SNAPSHOTS.md` — visual-regression matrix (4 viewports × locales/motion/HC/print) + state + EC fixtures.
+- `MOTION.md` — full + reduced-motion behaviour for every animated element.
+- `A11Y.md` — AAA contrast proofs computed from TOKENS.md, carousel ARIA pattern, focus order, Calendly focus restoration.
+- `FONTS.md` — self-hosted WOFF2, metric matching, CLS=0 budget.
+- `HEAD-META.md` — root vs leaf head split, `color-scheme: dark`, LCP portrait preload.
+
+### Token rename
+- Color tokens already use role-based names (`--color-accent`, `--color-text-muted`) per `TOKENS.md`. Audit confirmed in this release: no raw color-name tokens remain.
+
+### Findings closed
+- #41 (motion+reduced-motion) · #48 (Three.js fallback — cross-linked) · #54 (font CLS) · #55 (color-scheme) · #62 (carousel ARIA) · #69 (canonical snapshots 4 viewports) · #70 (token semantic rename — audit only) · #81 (Calendly focus restore) · #83 (forced-colors snapshot)
 ## 1.1.0 — 2026-06-02 (Batch 2, steps 11–20)
 
 ### Added
