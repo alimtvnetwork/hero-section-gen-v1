@@ -16,6 +16,10 @@ production-grade engineering standards, then score it.
    `20-gap-analysis.md` with severity.
 2. **Token audit** — every value in `02-tokens.md` exists in the prototype
    and the prototype contains no values that aren't tokenized.
+   **Color completeness check** (per `prompts/06-color-and-typography.md`):
+   every color row has oklch + hex + rgb + hsl; every shade/hover/glow is
+   its own row; `--shadow-text-default` exists; every header level has a
+   typography row naming a specific font. Missing any of these = **P0**.
 3. **Contract audit** — `04-component-contract.md` covers every visible
    element; every prop has a default, validator, and length budget.
 4. **A11y audit** — AAA contrast for body, ≥AA for large text; focus order

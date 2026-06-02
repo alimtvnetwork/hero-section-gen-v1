@@ -72,6 +72,9 @@ If the AI stops after Step 1 or 2, the user has nothing to drive.
 5. `04-next-10.md` — the "next 10" loop the user invokes repeatedly until
    the spec reaches 100/100.
 6. `05-write-memory.md` — session close-out (mirrors `.lovable/prompts/01-write-memory.md`).
+7. `06-color-and-typography.md` — **MANDATORY** color (oklch + hex + rgb + hsl)
+   and typography extraction rules. Includes the project-wide text-shadow
+   token `--shadow-text-default: rgb(0 0 0) 1px 0.7px 0px`.
 
 ## Naming rules (apply to every spec this process produces)
 
