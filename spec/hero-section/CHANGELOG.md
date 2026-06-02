@@ -1,3 +1,29 @@
+## 2.0.0 — 2026-06-02 (Batch 5, steps 41–50 — final)
+
+**Spec is now 100/100 AI-shippable** per `DEFINITION-OF-DONE.md`. MAJOR bump because governance contract is now binding (CODEOWNERS enforces review routing; copy owners enforce string approvals; DoD gates block merges).
+
+### Added
+- `CODEOWNERS` — path → owner mapping for spec, tokens, snapshots, fixtures, perf, a11y, security, content.
+- `COPY-OWNERS.md` — per-string ownership + legal-review keyword triggers.
+- `DEPENDENCIES.md` — RFC template + approval gates.
+- `FLAGS.md` — per-env defaults + retirement dates for every hero flag.
+- `SEO.md` — robots, sitemap, canonical, hreflang.
+- `CMS-PREVIEW.md` — signed-token preview mode + 20-version rollback + kill-switch.
+- `SLO.md` — SLOs, error budget, alert routing, synthetic monitoring.
+- `RETENTION.md` — TTLs per data class, SAR handling.
+- `PRIORITIES.md` — P0/P1/P2 triage of all 107 findings with status.
+- `DEFINITION-OF-DONE.md` — 12-gate ship checklist; PR template snippet.
+
+### Findings closed
+- #51 CODEOWNERS · #79 robots/sitemap · #80 canonical URL policy · #84 device matrix (in DoD)
+- #85 env flags · #87 dependency allowlist (formalised) · #89 error-boundary copy (cross-ref)
+- #91 retention · #93 CMS rollback · #94 visual QA signoff · #95 a11y regression matrix
+- #97 priority labels · #102 SLOs · #107 Definition of Done
+
+### Open items deliberately not in this release
+- #49 Carousel swipe/pointer implementation (impl PR, not spec).
+- #57 Lighthouse CI workflow wiring to GitHub Actions (impl PR; config already in `BUDGETS.md`).
+- #78 Analytics consent replay queue, #90 event schema versioning, #98 CI pipeline contract, #104 third-party notices, #106 onboarding doc — tracked as P2 in `PRIORITIES.md` for v2.1.
 ## 1.3.0 — 2026-06-02 (Batch 4, steps 31–40)
 
 ### Added

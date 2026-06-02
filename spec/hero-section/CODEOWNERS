@@ -1,0 +1,66 @@
+# CODEOWNERS — spec/hero-section
+# Format: <path> <owner1> [<owner2> ...]
+# A PR touching any path requires approval from at least one listed owner.
+
+# Spec entry points + index
+/spec/hero-section/00-INDEX.md          @hero-owner @docs
+/spec/hero-section/CHANGELOG.md         @hero-owner @docs
+/spec/hero-section/ARCHIVED.md          @hero-owner
+/spec/hero-section/CONVENTIONS.md       @hero-owner @platform
+
+# Design tokens, visual contract
+/spec/hero-section/TOKENS.md            @design @hero-owner
+/spec/hero-section/SPEC.md              @design @hero-owner
+/spec/hero-section/HERO-ANATOMY.md      @design @hero-owner
+/spec/hero-section/GLOSSARY.md          @design
+/spec/hero-section/SNAPSHOTS.md         @design @qa
+/spec/hero-section/MOTION.md            @design @hero-owner
+/spec/hero-section/FONTS.md             @design @perf
+
+# A11y
+/spec/hero-section/A11Y.md              @a11y @hero-owner
+
+# Data + component contract
+/spec/hero-section/COMPONENT-CONTRACT.md @hero-owner @platform
+/spec/hero-section/EDGE-CASES.md        @hero-owner @qa
+/spec/hero-section/STATES.md            @hero-owner @copy
+/spec/hero-section/STORYBOOK-FIXTURES.md @hero-owner @privacy
+
+# i18n / copy
+/spec/hero-section/I18N.md              @copy @hero-owner
+/spec/hero-section/COPY-BUDGETS.md      @copy @hero-owner
+/spec/hero-section/COPY-OWNERS.md       @copy @legal
+
+# Perf + runtime
+/spec/hero-section/BUDGETS.md           @perf @hero-owner
+/spec/hero-section/LAZY-LOAD.md         @perf @hero-owner
+/spec/hero-section/SSR-RULES.md         @platform @hero-owner
+/spec/hero-section/CLEANUP.md           @platform @hero-owner
+/spec/hero-section/VIEWPORT-UNITS.md    @design @platform
+/spec/hero-section/THREEJS-FALLBACK.md  @hero-owner @perf
+
+# Security / supply chain
+/spec/hero-section/CSP.md               @security @platform
+/spec/hero-section/SECRETS.md           @security @platform
+/spec/hero-section/SUPPLY-CHAIN.md      @security @platform
+/spec/hero-section/DEPENDENCIES.md      @security @platform
+/spec/hero-section/SOURCE-MAPS.md       @security @platform
+
+# Assets / CDN / portraits
+/spec/hero-section/IMAGE-MANIFEST.md    @design @platform-cdn
+/spec/hero-section/CDN.md               @platform-cdn
+
+# Ops / governance
+/spec/hero-section/HEAD-META.md         @seo @hero-owner
+/spec/hero-section/SEO.md               @seo
+/spec/hero-section/CMS-PREVIEW.md       @content @platform
+/spec/hero-section/FLAGS.md             @platform @hero-owner
+/spec/hero-section/SLO.md               @platform-sre
+/spec/hero-section/RETENTION.md         @privacy @platform
+/spec/hero-section/PRIORITIES.md        @hero-owner @platform
+/spec/hero-section/DEFINITION-OF-DONE.md @hero-owner @qa @platform
+
+# Portraits, fixtures, snapshots (binary)
+/spec/hero-section/*.png                @design
+/snapshots/hero/baseline/**             @design @qa
+/src/components/hero/__fixtures__/**    @hero-owner @privacy
