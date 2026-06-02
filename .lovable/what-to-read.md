@@ -11,7 +11,7 @@
 Read these in order. Skip none. If a file is missing, create it from the
 templates referenced in `.lovable/prompts/01-write-memory.md`.
 
-1. **`README.md`** (repo root) — high-level layout + how-to overview.
+1. **`readme.md`** (repo root) — high-level layout + how-to overview.
 2. **`.lovable/what-to-read.md`** (this file) — workflow contract.
 3. **`.lovable/coding-guidelines.md`** — ≤8-line fns, no `any`, no magic
    strings, Enums in dedicated files, Boolean naming, error handling.
@@ -27,7 +27,7 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 10. **`.lovable/memory/workflow/`** — current in-progress workflow state.
 11. **`spec/<feature>/00-index.md`** — for the feature you're touching.
     Hero example: `spec/01-rise-of-asia/01-homepage-hero-section/00-index.md`.
-12. **`spec-issues/README.md`** + relevant `PHASE-XX-*.md` files — audit
+12. **`spec-issues/readme.md`** + relevant `phase-xx-*.md` files — audit
     history; check before re-investigating a finding.
 
 ---
@@ -36,7 +36,7 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 
 ```
 .
-├── README.md
+├── readme.md
 ├── .lovable/
 │   ├── what-to-read.md            ← THIS FILE
 │   ├── overview.md                ← project overview (create if missing)
@@ -64,7 +64,7 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 │   ├── solved-issues/             ← closed bugs (+ Solution + Learning)
 │   └── cicd-issues/               ← CI/CD-specific issues
 ├── spec/
-│   └── hero-section/              ← reference layout for all features
+│   └── 01-rise-of-asia/01-homepage-hero-section/              ← reference layout for all features
 │       ├── 00-index.md            ← single entry point per feature
 │       ├── 13-spec.md, SPEC-PART-*.md
 │       ├── 04-component-contract.md, 02-tokens.md, 23-motion.md, 24-a11y.md, ...
@@ -176,7 +176,7 @@ After writing code:
 
 | You need to … | Read / write |
 |---|---|
-| Understand the project | `README.md`, `.lovable/overview.md` |
+| Understand the project | `readme.md`, `.lovable/overview.md` |
 | Know what to read next | `.lovable/what-to-read.md` (this file) |
 | Follow code rules | `.lovable/coding-guidelines.md` |
 | Avoid known traps | `.lovable/strictly-avoid.md` |

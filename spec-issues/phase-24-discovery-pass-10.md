@@ -77,6 +77,6 @@ Each finding: **What / Why blind-AI fails / Fix path / Time**.
 
 ### Suggested next moves (not discovery — execution)
 
-1. Run Phase 1 (the actual fix work) per the table in `README.md`.
+1. Run Phase 1 (the actual fix work) per the table in `readme.md`.
 2. Or: run a triage pass to assign P0/P1/P2 to all 97 findings (finding #97 itself) before any fix work — ensures fix order matches shipping risk.
 3. Or: spawn parallel sub-tracks (a11y / perf / governance / content) each owning a contiguous range of finding IDs.
