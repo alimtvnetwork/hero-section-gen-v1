@@ -5,9 +5,60 @@
 
 ## What lives here
 
-Reusable, project-agnostic prompts that turn a reference image into a
-production-grade, AI-shippable spec, and then drive implementation in
-predictable 10-item batches.
+Reusable, project-agnostic prompts that turn one or more reference images
+into a production-grade, AI-shippable spec, and then drive implementation
+in predictable 10-item batches the user can drive with a single keyword
+(`next`).
+
+## The full loop (TL;DR for humans)
+
+```
+ user gives 1..N images
+        │
+        ▼
+ ┌──────────────────────────────────────────────┐
+ │ STEP 1 — prompts/01-image-to-html.md         │
+ │   AI saves canonical image(s), builds the    │
+ │   anatomy table, extracts tokens, writes a   │
+ │   self-contained HTML/CSS/JS prototype.      │
+ └──────────────────────────────────────────────┘
+        │
+        ▼
+ ┌──────────────────────────────────────────────┐
+ │ STEP 2 — prompts/02-write-spec.md            │
+ │   AI scaffolds spec/<NN-site>/<NN-section>/  │
+ │   with the full lowercase-hyphen file tree   │
+ │   (00-index.md … 56-lighthouse-ci.md).       │
+ └──────────────────────────────────────────────┘
+        │
+        ▼
+ ┌──────────────────────────────────────────────┐
+ │ STEP 3 — prompts/03-audit.md                 │
+ │   AI gap-analyses image vs spec, scores      │
+ │   /100, writes 20-gap-analysis.md and        │
+ │   populates 45-priorities.md with P0/P1/P2.  │
+ └──────────────────────────────────────────────┘
+        │
+        ▼
+ ┌──────────────────────────────────────────────┐
+ │ STEP 4 — prompts/04-next-10.md  (LOOPED)     │
+ │   User types "next" (or "next 10").          │
+ │   AI executes 10 items, reports remaining,   │
+ │   loop until 45-priorities.md is empty.      │
+ └──────────────────────────────────────────────┘
+        │
+        ▼
+ ┌──────────────────────────────────────────────┐
+ │ STEP 5 — prompts/05-write-memory.md          │
+ │   User types "write memory" to persist       │
+ │   session state for the next AI.             │
+ └──────────────────────────────────────────────┘
+```
+
+**Hard rule:** Steps 1 → 2 → 3 always run together when the user gives an
+image. The AI MUST finish all three before stopping, because Step 3 is what
+produces `45-priorities.md` — the queue that the `next` keyword consumes.
+If the AI stops after Step 1 or 2, the user has nothing to drive.
 
 ## Read order
 
@@ -37,10 +88,23 @@ predictable 10-item batches.
 
 | User says | AI does |
 |---|---|
-| "read the prompt and follow this process for `<image>`" | Run 01 → 02 → 03 from a clean state, output initial spec + audit. |
-| "next 10" | Execute the next 10 outstanding items in `45-priorities.md` (or equivalent) per `04-next-10.md`. |
-| "gap analysis" | Re-run `03-audit.md` against the current spec + canonical image. |
+| "here is an image, follow the prompt" (or attaches 1..N images) | Run 01 → 02 → 03 end-to-end. Output initial spec + audit + `45-priorities.md`. Stop only after Step 3. |
+| "next" / "next 10" / "next 10 with reasoning and time" | Execute the next 10 outstanding items in `45-priorities.md` per `04-next-10.md`. End reply with `Remaining items: <N>`. |
+| "gap analysis" / "re-audit" | Re-run `03-audit.md` against the current spec + canonical image. Rewrite `20-gap-analysis.md` and refresh `45-priorities.md`. |
+| "add this observation" / new image | Re-run Step 1 partially (anatomy + tokens diff), then Step 3 to refresh priorities. |
 | "write memory" / "end memory" | Run `05-write-memory.md`. |
+
+## Multiple images
+
+If the user provides several images for the same section (e.g. desktop +
+mobile, or "before / after" iterations):
+
+1. Save each as `NN-<section>-<variant>.<ext>` — the first is
+   `00-<section>-canonical.<ext>`, the rest are `01..`, `02..` etc.
+2. The canonical (`00`) is the source of truth. Others are reference-only
+   and must be listed in `19-archived.md` with a one-line rationale.
+3. Anatomy table includes a `responsive-variant` column if the variants
+   represent different breakpoints.
 
 ## Hand-off contract
 
@@ -51,3 +115,5 @@ complete the previous step before continuing.
 ## Changelog
 
 - v1 (2026-06-02) — initial extraction from the hero-section workflow.
+- v2 (2026-06-02) — added explicit 5-step loop diagram, multi-image rules,
+  and clarified that Steps 1-3 always run together so `next` has a queue.
