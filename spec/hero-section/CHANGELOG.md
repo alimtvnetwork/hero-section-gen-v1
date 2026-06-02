@@ -1,3 +1,21 @@
+## 1.3.0 — 2026-06-02 (Batch 4, steps 31–40)
+
+### Added
+- `BUDGETS.md` — Lighthouse CI config, bundle/image/font budgets, PR comment template.
+- `CSP.md` — production CSP with per-request nonce for inline JSON-LD.
+- `SSR-RULES.md` — deterministic SSR + hydration-mismatch elimination.
+- `LAZY-LOAD.md` — 6-tier load priority matrix.
+- `CLEANUP.md` — memory-leak teardown patterns + CI lint.
+- `VIEWPORT-UNITS.md` — `svh`/`dvh`/`lvh` for iOS Safari.
+- `CDN.md` — path/headers/purge/fallback contract.
+- `SUPPLY-CHAIN.md` — lockfile + audit + allowlist/denylist.
+- `SECRETS.md` — full inventory with rotation cadence and break-glass.
+- `SOURCE-MAPS.md` — hidden + uploaded source-map policy.
+
+### Findings closed
+- #48 (Three.js fallback cross-link complete) · #56 (bundle budgets) · #57 (Lighthouse CI)
+- #71 (lazy-load triggers) · #72 (hydration determinism) · #73 (CSP nonce JSON-LD) · #74 (memory leak cleanup)
+- #76 (CDN strategy) · #77 (portrait fallback chain) · #82 (svh/dvh/lvh) · #100 (secret rotation) · #101 (supply-chain pinning) · #103 (source-map upload)
 ## 1.2.0 — 2026-06-02 (Batch 3, steps 21–30)
 
 ### Added
