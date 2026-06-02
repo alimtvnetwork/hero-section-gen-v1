@@ -36,6 +36,13 @@ Lovable Cloud (Supabase under the hood). Edge runtime is Cloudflare Workers
 │   ├── pending-issues/        ← open bugs (XX-name.md)
 │   ├── solved-issues/         ← closed bugs w/ Solution + Learning
 │   └── cicd-issues/           ← CI/CD-specific issues
+├── prompts/                   ← REUSABLE AI PROCESS (image → spec → audit → next-10)
+│   ├── 00-index.md            ← prompts entry point (read first when given an image)
+│   ├── 01-image-to-html.md
+│   ├── 02-write-spec.md
+│   ├── 03-audit.md
+│   ├── 04-next-10.md
+│   └── 05-write-memory.md
 ├── spec/                      ← product/feature specs
 │   └── 01-rise-of-asia/01-homepage-hero-section/          ← canonical hero spec (start at 00-index.md)
 ├── spec-issues/               ← spec gap-analysis / audit phases
