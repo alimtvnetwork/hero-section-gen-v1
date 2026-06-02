@@ -12,7 +12,7 @@
 4. **`03-glossary.md`** — rim light, hot edge, halo, wash, warm side — disambiguated.
 5. **`04-component-contract.md`** — public `HeroProps` API. Authoritative.
 6. **`05-hero-anatomy.md`** — element-by-element map (numbered diagram).
-7. **`COPY-27-budgets.md`** — per-field length limits, i18n-safe.
+7. **`06-copy-budgets.md`** — per-field length limits, i18n-safe.
 8. **`07-i18n.md`** — locale resolution + RTL mirroring.
 9. **`08-image-manifest.md`** — portrait provenance, prompts, seeds, licenses.
 10. **`09-edge-cases.md`** — fixture catalogue (EC-01..EC-20).

@@ -61,7 +61,7 @@
 ### Added
 - `04-component-contract.md` — authoritative HeroProps + invariants.
 - `05-hero-anatomy.md` — numbered diagram + element→prop/token/event map.
-- `COPY-27-budgets.md` — per-field length limits with DE/AR variants.
+- `06-copy-budgets.md` — per-field length limits with DE/AR variants.
 - `07-i18n.md` — locale fallback chain + RTL mirroring rules.
 - `08-image-manifest.md` — portrait provenance, prompts, seeds, licenses.
 - `09-edge-cases.md` — 20 fixtures (EC-01..EC-20).

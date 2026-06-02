@@ -28,7 +28,7 @@
 
 # i18n / copy
 /spec/01-rise-of-asia/01-homepage-hero-section/07-i18n.md              @copy @hero-owner
-/spec/01-rise-of-asia/01-homepage-hero-section/COPY-27-budgets.md      @copy @hero-owner
+/spec/01-rise-of-asia/01-homepage-hero-section/06-copy-budgets.md      @copy @hero-owner
 /spec/01-rise-of-asia/01-homepage-hero-section/38-copy-owners.md       @copy @legal
 
 # Perf + runtime

@@ -18,7 +18,7 @@ export type Engineer = {
   portraitSrcJpeg: string;    // emergency fallback
   portraitAlt: string;        // required; non-empty
   portraitFocalPoint?: { x: number; y: number }; // 0..1, default {0.5, 0.4}
-  quote: string;              // 80–160 chars (see COPY-27-budgets.md)
+  quote: string;              // 80–160 chars (see 06-copy-budgets.md)
   linkedinUrl?: string;
   location?: string;
   badge?: string;             // default "Top 5% Vetted Engineer"
