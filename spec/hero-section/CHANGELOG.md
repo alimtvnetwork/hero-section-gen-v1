@@ -1,3 +1,19 @@
+## 1.1.0 — 2026-06-02 (Batch 2, steps 11–20)
+
+### Added
+- `COMPONENT-CONTRACT.md` — authoritative HeroProps + invariants.
+- `HERO-ANATOMY.md` — numbered diagram + element→prop/token/event map.
+- `COPY-BUDGETS.md` — per-field length limits with DE/AR variants.
+- `I18N.md` — locale fallback chain + RTL mirroring rules.
+- `IMAGE-MANIFEST.md` — portrait provenance, prompts, seeds, licenses.
+- `EDGE-CASES.md` — 20 fixtures (EC-01..EC-20).
+- `STATES.md` — loading, empty, error, offline, slow with canonical copy.
+- `STORYBOOK-FIXTURES.md` — PII-safe rules.
+- `GLOSSARY.md` — rim/halo/wash/hot edge disambiguation.
+
+### Findings closed
+- #11 component-contract gap · #12–17 data/schema/copy/i18n/image/edge gaps
+- #52 glossary · #66 Storybook PII · #68 component anatomy
 # Hero Section Spec — Changelog
 
 Format: [semver](https://semver.org). Breaking visual or schema changes → MAJOR. Additive sections → MINOR. Typo/clarification → PATCH.

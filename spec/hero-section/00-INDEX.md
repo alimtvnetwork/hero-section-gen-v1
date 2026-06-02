@@ -10,14 +10,24 @@
 2. **`CONVENTIONS.md`** — naming (events, flags, files, CSS vars, components).
 3. **`TOKENS.md`** — colors, spacing, motion, type. Single source for `src/styles.css`.
 4. **`GLOSSARY.md`** — rim light, hot edge, halo, wash, warm side — disambiguated.
-5. **`SPEC.md`** — canvas, layout, color, typography, copy.
-6. **`SPEC-PART-2.md`** — portrait pipeline, image gen, fallbacks.
-7. **`SPEC-PART-3.md`** — data schema, SEO, edge cases.
-8. **`SPEC-PART-4.md`** — motion, carousel, scroll.
-9. **`SPEC-PART-5.md`** — engineering ops (tokens export, edge cases, cost, DR).
-10. **`SPEC-PART-6.md`** — a11y AAA, Storybook, native parity, consent.
-11. **`GAP-ANALYSIS.md`** — historical record of canonical-vs-variant deltas. **No longer overrides** — all deltas have been promoted into SPEC.md as of v1.0.0.
-12. **`CHANGELOG.md`** — versioned diff log.
+5. **`COMPONENT-CONTRACT.md`** — public `HeroProps` API. Authoritative.
+6. **`HERO-ANATOMY.md`** — element-by-element map (numbered diagram).
+7. **`COPY-BUDGETS.md`** — per-field length limits, i18n-safe.
+8. **`I18N.md`** — locale resolution + RTL mirroring.
+9. **`IMAGE-MANIFEST.md`** — portrait provenance, prompts, seeds, licenses.
+10. **`EDGE-CASES.md`** — fixture catalogue (EC-01..EC-20).
+11. **`STATES.md`** — loading / empty / error / offline / slow.
+12. **`STORYBOOK-FIXTURES.md`** — PII-safe rules for stories.
+13. **`THREEJS-FALLBACK.md`** — SSR/no-WebGL/reduced-motion fallback.
+14. **`SPEC.md`** — canvas, layout, typography, copy (visual baseline).
+15. **`SPEC-PART-2.md`** — portrait pipeline, image gen, fallbacks.
+16. **`SPEC-PART-3.md`** — data schema, SEO, edge cases (legacy — superseded by COMPONENT-CONTRACT/EDGE-CASES for the contract surface).
+17. **`SPEC-PART-4.md`** — motion, carousel, scroll.
+18. **`SPEC-PART-5.md`** — engineering ops.
+19. **`SPEC-PART-6.md`** — a11y AAA, native parity, consent.
+20. **`ARCHIVED.md`** — what to NOT build.
+21. **`GAP-ANALYSIS.md`** — historical record; **no longer overrides**.
+22. **`CHANGELOG.md`** — versioned diff log.
 
 ## Source of truth (resolves all contradictions)
 
