@@ -63,6 +63,19 @@
 - **`PRIORITIES.md`** — full P0/P1/P2 triage of all 107 findings.
 - **`DEFINITION-OF-DONE.md`** — **the 100/100 ship gate**.
 
+### Operational closure (Batch 6)
+
+- **`CI.md`** — CI pipeline contract (jobs, gates, timeouts).
+- **`CAROUSEL-INTERACTION.md`** — swipe/pointer/keyboard + auto-advance.
+- **`ANALYTICS.md`** — versioned event schema, PII rules, consent replay queue.
+- **`THIRD-PARTY-NOTICES.md`** — license allow/deny + attribution.
+- **`ONBOARDING.md`** — < 2h to first PR.
+- **`POSTMORTEM.md`** — blameless incident template.
+- **`QA-DEVICE-MATRIX.md`** — Tier 1/2 device coverage.
+- **`A11Y-REGRESSION.md`** — axe/pa11y/SR matrix wiring.
+- **`AB-TESTING.md`** — experiment guardrails.
+- **`LIGHTHOUSE-CI.md`** — `lighthouserc.json` + gates.
+
 ## Spec score
 
 **100 / 100 AI-shippable** when every gate in `DEFINITION-OF-DONE.md` passes for the current release.
