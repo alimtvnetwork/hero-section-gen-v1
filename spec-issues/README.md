@@ -73,3 +73,4 @@ These are areas I've **not yet audited deeply**; each likely produces 3–8 more
 - 2026-06-02 — Phase 16 (discovery pass 2): logged findings 8–17 in `PHASE-16-discovery-pass-2.md`; queued 14 more digging passes.
 - 2026-06-02 — Phase 17 (discovery pass 3): logged findings 18–27 in `PHASE-17-discovery-pass-3.md`; queued 16 more digging passes.
 - 2026-06-02 — Phase 18 (discovery pass 4): logged findings 28–37 in `PHASE-18-discovery-pass-4.md`; queued 20 more digging passes.
+- 2026-06-02 — Phase 19 (discovery pass 5): logged findings 38–47 in `PHASE-19-discovery-pass-5.md`; queued 20 more digging passes.
