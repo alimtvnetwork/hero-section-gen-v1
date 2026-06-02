@@ -37,6 +37,19 @@
 - **`FONTS.md`** — self-hosted WOFF2 + metric matching, CLS=0 rule.
 - **`HEAD-META.md`** — root vs leaf head, `color-scheme: dark`, LCP preload.
 
+### Perf / runtime safety / supply chain (Batch 4)
+
+- **`BUDGETS.md`** — Lighthouse CI + bundle/image/font budgets, PR comment template.
+- **`CSP.md`** — production CSP, nonce strategy for inline JSON-LD.
+- **`SSR-RULES.md`** — hydration-mismatch prevention.
+- **`LAZY-LOAD.md`** — load-priority tiers (critical/preload/hydration/idle/interaction/viewport).
+- **`CLEANUP.md`** — memory-leak cleanup patterns + CI lint.
+- **`VIEWPORT-UNITS.md`** — `svh`/`dvh`/`lvh` rules for iOS Safari.
+- **`CDN.md`** — asset path, headers, fallback chain, outage mode.
+- **`SUPPLY-CHAIN.md`** — lockfile, audit gate, allow/denylist.
+- **`SECRETS.md`** — inventory, rotation, break-glass.
+- **`SOURCE-MAPS.md`** — hidden maps + uploaded to reporter.
+
 ## Source of truth (resolves all contradictions)
 
 | Domain | Canonical file | Anything else is stale |
