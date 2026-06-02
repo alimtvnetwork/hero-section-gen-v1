@@ -48,6 +48,12 @@ spec/<NN-site>/<NN-section>/
 1. Copy the file skeleton above. Leave placeholders only where the user
    cannot have a real value yet — placeholders MUST contain `TODO(<owner>)`.
 2. Fill `02-tokens.md` from the prototype's CSS variables verbatim.
+   **MANDATORY:** every color row in 4 formats (oklch + hex + rgb + hsl),
+   every shade/hover/glow as its own row, every header level in the
+   typography table with explicit font-family. Declare
+   `--shadow-text-default: rgb(0 0 0) 1px 0.7px 0px`. See
+   `prompts/06-color-and-typography.md` for the full contract — this is
+   non-negotiable; spec audits fail without it.
 3. Fill `04-component-contract.md` with a TypeScript-style Props interface,
    each field's units, defaults, and validation rule.
 4. Fill `05-<section>-anatomy.md` from the prototype's numbered table.

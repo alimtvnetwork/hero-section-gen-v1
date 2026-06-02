@@ -21,6 +21,12 @@ that becomes the visual ground truth for the spec.
    No element may be missing or skipped (use `N/A` only when truly absent).
 4. **Extract tokens** — colors in `oklch`, spacing on a 4px grid, type pair,
    motion durations/easings — into `02-tokens.md`. No hex literals.
+   **MANDATORY:** follow `prompts/06-color-and-typography.md`. Every color
+   row must include **oklch + hex + rgb + hsl**, every shade/hover/glow gets
+   its own row, every header level gets a typography row with the specific
+   font name, and the canonical text-shadow
+   `--shadow-text-default: rgb(0 0 0) 1px 0.7px 0px` is declared and applied
+   to body/headline text on dark surfaces.
 5. **Write the prototype** as a single self-contained HTML file in
    `spec/<site>/<section>/_prototype/index.html` plus `styles.css` and
    optional `motion.js`. The prototype:
