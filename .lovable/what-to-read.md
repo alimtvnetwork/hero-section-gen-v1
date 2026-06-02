@@ -24,6 +24,13 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 8. **`.lovable/prompts/index.md`** — registry of reusable prompts.
 8b. **`prompts/00-index.md`** (root) — REUSABLE IMAGE → SPEC → AUDIT → NEXT-10
     process. When the user gives an image and says "follow the prompt", start here.
+8c. **`prompts/01-image-to-html.md`**, **`prompts/02-write-spec.md`**,
+    **`prompts/03-audit.md`**, **`prompts/04-next-10.md`**,
+    **`prompts/05-write-memory.md`** — read ALL FIVE in order. They define
+    every step of the image → spec → audit → `next` → memory loop. Do not
+    skip ahead; Step 3 must finish before the user can invoke `next`.
+8d. **`mem/index.md`** — top-level project memory index (separate from
+    `.lovable/memory/`). Always-in-context core rules + topical pointers.
 9. **`.lovable/memory/index.md`** — master index. Every memory file is
    listed here; if not, it's an orphan — fix it.
 10. **`.lovable/memory/workflow/`** — current in-progress workflow state.

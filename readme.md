@@ -3,6 +3,13 @@
 > **AI agents: read `.lovable/what-to-read.md` FIRST.** It is the single entry point
 > that tells you which files to read, in what order, before you write any code,
 > tests, specs, or features.
+>
+> **If the user gives you one or more reference images and says "follow the
+> prompt"** → start at **`prompts/00-index.md`** and run the full
+> image → spec → audit loop (steps 01 → 02 → 03) before stopping. After
+> step 03, the user drives implementation by typing **`next`** (or
+> `next 10`), which consumes `spec/<site>/<section>/45-priorities.md`
+> one batch at a time per `prompts/04-next-10.md`.
 
 ## What this project is
 
@@ -74,6 +81,35 @@ Quick summary:
 6. **Implement** following the coding guidelines.
 7. **Add unit tests** alongside the code (`*.test.ts` next to the source).
 8. **Update memory** at the end of the batch using `.lovable/prompts/01-write-memory.md`.
+
+## The `prompts/` workflow (image → spec → next)
+
+This repo treats a reference image as the source of truth for any new UI
+section. The `prompts/` folder encodes the exact, reusable process so any
+AI (or human) can pick it up cold:
+
+| Step | File | What happens | Who triggers |
+|---|---|---|---|
+| 1 | `prompts/01-image-to-html.md` | Save canonical image, build anatomy table + tokens + HTML/CSS/JS prototype. | Auto (after user supplies image). |
+| 2 | `prompts/02-write-spec.md` | Scaffold `spec/<NN-site>/<NN-section>/` with the full lowercase-hyphen file tree (`00-index.md` … `56-lighthouse-ci.md`). | Auto. |
+| 3 | `prompts/03-audit.md` | Gap-analyse image vs spec, score /100, populate `45-priorities.md` with P0/P1/P2 items. | Auto. |
+| 4 | `prompts/04-next-10.md` | Execute the next 10 priority items in one batch and report `Remaining items: N`. | **User types `next`** (loop). |
+| 5 | `prompts/05-write-memory.md` | Persist session state for the next AI. | User types `write memory`. |
+
+**Hard rule:** Steps 1 → 2 → 3 always run together. Stopping after step 1
+or 2 is a failure mode because the `next` keyword has nothing to consume.
+
+### How the user drives it
+
+1. Drop one or more images in chat, say *"follow the prompt"*. AI runs 1-3.
+2. Repeat: type **`next`** (or `next 10 with reasoning and time`) until
+   `Remaining items: 0`.
+3. Type **`gap analysis`** any time to re-score the spec.
+4. Type **`write memory`** at end of session.
+
+Folder selection is automatic from the section slug. If the user wants a
+different section, they say *"new section: <name>"* and the AI creates
+`spec/<NN-site>/<NN-new-section>/` before running step 1.
 
 ## How to add a new feature
 
