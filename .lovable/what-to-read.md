@@ -11,7 +11,7 @@
 Read these in order. Skip none. If a file is missing, create it from the
 templates referenced in `.lovable/prompts/01-write-memory.md`.
 
-1. **`README.md`** (repo root) — high-level layout + how-to overview.
+1. **`readme.md`** (repo root) — high-level layout + how-to overview.
 2. **`.lovable/what-to-read.md`** (this file) — workflow contract.
 3. **`.lovable/coding-guidelines.md`** — ≤8-line fns, no `any`, no magic
    strings, Enums in dedicated files, Boolean naming, error handling.
@@ -22,12 +22,14 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 6. **`.lovable/suggestions.md`** — open + implemented suggestions.
 7. **`.lovable/cicd-index.md`** — known CI/CD issues; don't re-debug them.
 8. **`.lovable/prompts/index.md`** — registry of reusable prompts.
+8b. **`prompts/00-index.md`** (root) — REUSABLE IMAGE → SPEC → AUDIT → NEXT-10
+    process. When the user gives an image and says "follow the prompt", start here.
 9. **`.lovable/memory/index.md`** — master index. Every memory file is
    listed here; if not, it's an orphan — fix it.
 10. **`.lovable/memory/workflow/`** — current in-progress workflow state.
-11. **`spec/<feature>/00-INDEX.md`** — for the feature you're touching.
-    Hero example: `spec/hero-section/00-INDEX.md`.
-12. **`spec-issues/README.md`** + relevant `PHASE-XX-*.md` files — audit
+11. **`spec/<feature>/00-index.md`** — for the feature you're touching.
+    Hero example: `spec/01-rise-of-asia/01-homepage-hero-section/00-index.md`.
+12. **`spec-issues/readme.md`** + relevant `phase-xx-*.md` files — audit
     history; check before re-investigating a finding.
 
 ---
@@ -36,7 +38,7 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 
 ```
 .
-├── README.md
+├── readme.md
 ├── .lovable/
 │   ├── what-to-read.md            ← THIS FILE
 │   ├── overview.md                ← project overview (create if missing)
@@ -64,13 +66,13 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 │   ├── solved-issues/             ← closed bugs (+ Solution + Learning)
 │   └── cicd-issues/               ← CI/CD-specific issues
 ├── spec/
-│   └── hero-section/              ← reference layout for all features
-│       ├── 00-INDEX.md            ← single entry point per feature
-│       ├── SPEC.md, SPEC-PART-*.md
-│       ├── COMPONENT-CONTRACT.md, TOKENS.md, MOTION.md, A11Y.md, ...
-│       ├── CI.md, LIGHTHOUSE-CI.md, QA-DEVICE-MATRIX.md
-│       ├── CHANGELOG.md, PRIORITIES.md, DEFINITION-OF-DONE.md
-│       └── ARCHIVED.md
+│   └── 01-rise-of-asia/01-homepage-hero-section/              ← reference layout for all features
+│       ├── 00-index.md            ← single entry point per feature
+│       ├── 13-spec.md, SPEC-PART-*.md
+│       ├── 04-component-contract.md, 02-tokens.md, 23-motion.md, 24-a11y.md, ...
+│       ├── 47-ci.md, 56-lighthouse-ci.md, 53-qa-device-matrix.md
+│       ├── 21-changelog.md, 45-priorities.md, 46-definition-of-done.md
+│       └── 19-archived.md
 ├── spec-issues/                   ← audit phases / gap analyses
 ├── src/
 │   ├── routes/                    ← file-based routes
@@ -95,7 +97,7 @@ templates referenced in `.lovable/prompts/01-write-memory.md`.
 Before writing code:
 
 1. Read `.lovable/coding-guidelines.md` (and `spec/error-manage/` if it exists).
-2. Read the relevant `spec/<feature>/00-INDEX.md`.
+2. Read the relevant `spec/<feature>/00-index.md`.
 3. Check `.lovable/strictly-avoid.md`.
 4. Check `.lovable/pending-issues/` and `.lovable/solved-issues/` for prior art.
 
@@ -122,13 +124,13 @@ After writing code:
 
 ## 4. Adding a new feature
 
-1. Create `spec/<feature>/00-INDEX.md` (mirror `spec/hero-section/`).
-2. Add: `SPEC.md`, `COMPONENT-CONTRACT.md`, `STATES.md`, `EDGE-CASES.md`,
-   `A11Y.md`. Reuse `spec/hero-section/TOKENS.md` unless new tokens needed.
+1. Create `spec/<feature>/00-index.md` (mirror `spec/01-rise-of-asia/01-homepage-hero-section/`).
+2. Add: `13-spec.md`, `04-component-contract.md`, `10-states.md`, `09-edge-cases.md`,
+   `24-a11y.md`. Reuse `spec/01-rise-of-asia/01-homepage-hero-section/02-tokens.md` unless new tokens needed.
 3. Open a `.lovable/plan.md` entry.
 4. Build under `src/routes/` + `src/components/`.
-5. Add unit, a11y, and visual tests per `spec/<feature>/CI.md`.
-6. Update `spec/<feature>/CHANGELOG.md` and `DEFINITION-OF-DONE.md`.
+5. Add unit, a11y, and visual tests per `spec/<feature>/47-ci.md`.
+6. Update `spec/<feature>/21-changelog.md` and `46-definition-of-done.md`.
 7. Run memory write.
 
 ---
@@ -139,7 +141,7 @@ After writing code:
 - Runner: `bun test` (Vitest-compatible).
 - A11y: Playwright + `@axe-core/playwright`.
 - Visual: Chromatic / Playwright snapshots per
-  `spec/<feature>/SNAPSHOTS.md`.
+  `spec/<feature>/22-snapshots.md`.
 - Server-function tests: invoke through `useServerFn` test harness or
   call the handler directly with a mocked context.
 
@@ -147,12 +149,12 @@ After writing code:
 
 ## 6. Writing/editing specs
 
-- Entry point per feature: `spec/<feature>/00-INDEX.md`.
+- Entry point per feature: `spec/<feature>/00-index.md`.
 - One concern per file (TOKENS, MOTION, A11Y, FONTS, CSP, ...).
-- Semver `CHANGELOG.md`; P0/P1/P2 in `PRIORITIES.md`;
-  ship gate in `DEFINITION-OF-DONE.md`.
+- Semver `21-changelog.md`; P0/P1/P2 in `45-priorities.md`;
+  ship gate in `46-definition-of-done.md`.
 - Verbatim user input → `.lovable/memory/specs/XX-<slug>.md`.
-- Never delete history — archive in `ARCHIVED.md`.
+- Never delete history — archive in `19-archived.md`.
 
 ---
 
@@ -176,12 +178,12 @@ After writing code:
 
 | You need to … | Read / write |
 |---|---|
-| Understand the project | `README.md`, `.lovable/overview.md` |
+| Understand the project | `readme.md`, `.lovable/overview.md` |
 | Know what to read next | `.lovable/what-to-read.md` (this file) |
 | Follow code rules | `.lovable/coding-guidelines.md` |
 | Avoid known traps | `.lovable/strictly-avoid.md` |
 | See active work | `.lovable/plan.md` |
-| Find a feature spec | `spec/<feature>/00-INDEX.md` |
+| Find a feature spec | `spec/<feature>/00-index.md` |
 | Add a verbatim user spec | `.lovable/memory/specs/XX-<slug>.md` |
 | Log a bug | `.lovable/pending-issues/XX-<name>.md` |
 | Resolve a bug | move to `.lovable/solved-issues/` + Solution + Learning |
