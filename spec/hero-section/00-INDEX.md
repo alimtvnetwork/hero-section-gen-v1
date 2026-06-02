@@ -50,6 +50,23 @@
 - **`SECRETS.md`** — inventory, rotation, break-glass.
 - **`SOURCE-MAPS.md`** — hidden maps + uploaded to reporter.
 
+### Governance + final gate (Batch 5)
+
+- **`CODEOWNERS`** — review routing per path.
+- **`COPY-OWNERS.md`** — per-string owner + legal-review triggers.
+- **`DEPENDENCIES.md`** — RFC template + allowlist process.
+- **`FLAGS.md`** — env flag matrix with retirement dates.
+- **`SEO.md`** — robots, sitemap, canonical, hreflang.
+- **`CMS-PREVIEW.md`** — preview mode + rollback + kill-switch.
+- **`SLO.md`** — SLOs + alerting + pager routing.
+- **`RETENTION.md`** — data retention per class.
+- **`PRIORITIES.md`** — full P0/P1/P2 triage of all 107 findings.
+- **`DEFINITION-OF-DONE.md`** — **the 100/100 ship gate**.
+
+## Spec score
+
+**100 / 100 AI-shippable** when every gate in `DEFINITION-OF-DONE.md` passes for the current release.
+
 ## Source of truth (resolves all contradictions)
 
 | Domain | Canonical file | Anything else is stale |
