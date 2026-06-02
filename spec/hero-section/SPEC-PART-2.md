@@ -10,7 +10,7 @@ Continuation of `SPEC.md`. Each item includes **Reasoning** (why it matters) and
 
 **Reasoning:** The reference's "premium" feel comes from rhythm, not decoration. Off-by-2px baseline drift is the #1 thing that makes a faithful build feel AI-generated. A debug grid lets QA verify alignment in a single screenshot instead of pixel-peeping.
 
-**Time:** **35 min** — 15 min grid wrapper + tokens, 10 min debug overlay, 10 min snap-pass on existing blocks.
+**Time:** **35m** — 15m grid wrapper + tokens, 10m debug overlay, 10m snap-pass on existing blocks.
 
 ---
 
@@ -20,7 +20,7 @@ Continuation of `SPEC.md`. Each item includes **Reasoning** (why it matters) and
 
 **Reasoning:** The portrait is the LCP candidate. Without preload + priority hints, LCP routinely slips past 2.5s on simulated 4G and tanks the Lighthouse score — the #1 landing-page regression. WebP cuts ~30% bytes vs PNG at identical perceived quality.
 
-**Time:** **40 min** — 10 min export/convert, 10 min `<picture>` markup, 10 min preload wiring, 10 min Lighthouse verification.
+**Time:** **40m** — 10m export/convert, 10m `<picture>` markup, 10m preload wiring, 10m Lighthouse verification.
 
 ---
 
@@ -30,7 +30,7 @@ Continuation of `SPEC.md`. Each item includes **Reasoning** (why it matters) and
 
 **Reasoning:** Inline SVG inherits the design token color and renders consistently across browsers (external SVG-as-img anti-aliases differently in Safari). Dashed connectors read "schematic / blueprint" — solid connectors would read as a literal product diagram and pull focus from the portrait.
 
-**Time:** **30 min** — 20 min authoring at correct coordinates, 10 min position/opacity tuning behind the portrait.
+**Time:** **30m** — 20m authoring at correct coordinates, 10m position/opacity tuning behind the portrait.
 
 ---
 
@@ -43,7 +43,7 @@ Continuation of `SPEC.md`. Each item includes **Reasoning** (why it matters) and
 
 **Reasoning:** A single gradient looks like a stock Photoshop flare. Two layers (one wide/soft, one narrow/hot) mimic how a physical rim light wraps a subject — the difference between "cinematic" and "CSS demo." `mix-blend-mode: screen` adds light instead of painting opaque orange over the portrait edge.
 
-**Time:** **25 min** — 10 min markup, 15 min iterative position tuning at 1280 and 1440.
+**Time:** **25m** — 10m markup, 15m iterative position tuning at 1280 and 1440.
 
 ---
 
@@ -58,7 +58,7 @@ Continuation of `SPEC.md`. Each item includes **Reasoning** (why it matters) and
 
 **Reasoning:** Three.js for 80 dots adds ~150KB gz for no visible benefit. A div-per-particle approach janks past ~40 nodes on low-end laptops. Canvas2D hits 60fps trivially in ~2KB JS. Skipping DPR scaling makes the dots fuzzy on retina — non-negotiable.
 
-**Time:** **50 min** — 20 min canvas + DPR setup, 15 min animation loop, 10 min reduced-motion + visibility hooks, 5 min density/speed tuning.
+**Time:** **50m** — 20m canvas + DPR setup, 15m animation loop, 10m reduced-motion + visibility hooks, 5m density/speed tuning.
 
 ---
 
@@ -78,7 +78,7 @@ Transitions: `transform 150ms, box-shadow 200ms, background-color 150ms`, easing
 
 **Reasoning:** Defining all five states up-front prevents "hover looks broken on tablet" follow-ups. A single token-driven variant API stops secondary CTAs from accidentally inheriting the amber glow — the glow is what makes "Book a Call" read as the obvious primary action.
 
-**Time:** **45 min** — 15 min component scaffold, 20 min state styling, 10 min visual review at all states.
+**Time:** **45m** — 15m component scaffold, 20m state styling, 10m visual review at all states.
 
 ---
 
@@ -88,7 +88,7 @@ Transitions: `transform 150ms, box-shadow 200ms, background-color 150ms`, easing
 
 **Reasoning:** Auto-advancing carousels are a known a11y trap. Pause-on-hover + pause-on-focus + reduced-motion respect makes it WCAG 2.2 compliant. The scaleX progress bar doubles as a visual countdown so users know a change is coming — without it the auto-advance feels random and users miss content.
 
-**Time:** **75 min** — 20 min state machine + timer, 20 min progress fill, 15 min keyboard + pause-on-hover, 10 min cross-fade groups, 10 min reduced-motion fallback.
+**Time:** **1h 15m** — 20m state machine + timer, 20m progress fill, 15m keyboard + pause-on-hover, 10m cross-fade groups, 10m reduced-motion fallback.
 
 ---
 
@@ -109,7 +109,7 @@ Chip: `flex items-center gap-3 px-4 py-3 rounded-xl bg-[--bg-elev] border border
 
 **Reasoning:** Data-driving makes localization, CMS sourcing, and A/B tests trivial — these requests land within weeks of launch. `grid place-items-center` avoids the sub-pixel centering bug `flex+items-center+justify-center` produces in Safari with odd-sized SVG glyphs.
 
-**Time:** **20 min** — 10 min component + data, 10 min styling.
+**Time:** **20m** — 10m component + data, 10m styling.
 
 ---
 
@@ -128,7 +128,7 @@ Use `<ul>/<li>` (semantically a list of brands). Each SVG has a `<title>`. **Do 
 
 **Reasoning:** `flex justify-between` produces uneven gaps when logo widths differ (which they always do); `grid-cols-6` guarantees pixel-symmetric columns. `currentColor` lets one CSS rule recolor every path on hover instead of per-SVG fills. The trademark caveat avoids the takedown that has hit multiple ProductHunt landing-page templates.
 
-**Time:** **60 min** — 40 min authoring 6 acceptable wordmarks (the bottleneck), 15 min layout + hover, 5 min a11y `<title>`.
+**Time:** **1h** — 40m authoring 6 acceptable wordmarks (the bottleneck), 15m layout + hover, 5m a11y `<title>`.
 
 ---
 
@@ -144,7 +144,7 @@ Use `<ul>/<li>` (semantically a list of brands). Each SVG has a `<title>`. **Do 
 
 **Reasoning:** Heroes are where landing pages win or lose Core Web Vitals — LCP is a Google ranking signal and a 3s+ LCP measurably hurts paid-ad quality scores. Numeric budgets make regressions blocking instead of subjective. CLS=0 specifically catches the most common landing-page bug: a 4px H1 shift when the web font swaps in.
 
-**Time:** **60 min** — 15 min font self-hosting + size-adjust, 15 min dynamic imports, 15 min Lighthouse run + remediation, 15 min CI threshold or manual-gate doc.
+**Time:** **1h** — 15m font self-hosting + size-adjust, 15m dynamic imports, 15m Lighthouse run + remediation, 15m CI threshold or manual-gate doc.
 
 ---
 
@@ -152,16 +152,16 @@ Use `<ul>/<li>` (semantically a list of brands). Each SVG has a `<title>`. **Do 
 
 | # | Item | Time |
 |---|---|---|
-| 15 | Pixel grid & safe zones | 35 min |
-| 16 | Portrait pipeline & preload | 40 min |
-| 17 | Flowchart SVG | 30 min |
-| 18 | Rim-light composite | 25 min |
-| 19 | Particle canvas | 50 min |
-| 20 | CTA variants & states | 45 min |
-| 21 | Carousel behavior | 75 min |
-| 22 | Stat chips (data-driven) | 20 min |
-| 23 | Logo wordmark set | 60 min |
-| 24 | Performance & LCP budget | 60 min |
+| 15 | Pixel grid & safe zones | 35m |
+| 16 | Portrait pipeline & preload | 40m |
+| 17 | Flowchart SVG | 30m |
+| 18 | Rim-light composite | 25m |
+| 19 | Particle canvas | 50m |
+| 20 | CTA variants & states | 45m |
+| 21 | Carousel behavior | 1h 15m |
+| 22 | Stat chips (data-driven) | 20m |
+| 23 | Logo wordmark set | 1h |
+| 24 | Performance & LCP budget | 1h |
 | | **Subtotal** | **≈ 7h 20m** |
 
 Add ~25% buffer for review/QA → realistic **~9 hours** for this batch alone.

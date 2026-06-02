@@ -19,7 +19,7 @@ Continuation of Parts 1–5. Same **What / Reasoning / Time** format. This is th
 
 **Reasoning:** AA passes a Lighthouse audit; AAA passes a real screen-reader user. The high-contrast Windows mode is the single most-skipped a11y check and the one that exposes the most "invisible button" bugs in dark themes — testing it takes 5 minutes and prevents enterprise-customer escalations. Plain-language summary is the cheapest accessibility win in this entire spec.
 
-**Time:** **60 min** — 15 min contrast pass + token swap, 5 min sr-only summary, 15 min forced-colors block, 10 min reduced-transparency wiring, 15 min screen-reader walkthrough (VoiceOver + NVDA). Sign-language video is excluded (separate production budget).
+**Time:** **1h** — 15m contrast pass + token swap, 5m sr-only summary, 15m forced-colors block, 10m reduced-transparency wiring, 15m screen-reader walkthrough (VoiceOver + NVDA). Sign-language video is excluded (separate production budget).
 
 ---
 
@@ -44,7 +44,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** Designers will request "what does it look like if the name is really long?" forever. A story per edge case lets them answer it themselves without filing tickets. Chromatic-style visual regression also gets every edge case covered for free — no separate test authoring.
 
-**Time:** **75 min** — 15 min Storybook scaffold (if not already installed), 5 min/story × 11 stories = 55 min, 5 min Chromatic wiring.
+**Time:** **1h 15m** — 15m Storybook scaffold (if not already installed), 5m/story × 11 stories = 55m, 5m Chromatic wiring.
 
 ---
 
@@ -64,7 +64,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** Without a token-export pipeline, the amber hex drifts across web, iOS, Android, marketing emails, and Figma — each platform settles on slightly different values within months. One source + N transforms means changing the brand amber is a one-line PR that lands everywhere. This is the foundation §58 (native parity) sits on.
 
-**Time:** **75 min** — 25 min Style Dictionary setup + first config, 20 min token authoring + semantic naming pass, 15 min platform transforms, 15 min CI sync-check.
+**Time:** **1h 15m** — 25m Style Dictionary setup + first config, 20m token authoring + semantic naming pass, 15m platform transforms, 15m CI sync-check.
 
 ---
 
@@ -81,7 +81,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** Cross-platform brand drift is the most expensive design-system bug — "the orange looks different on iOS" is a meeting that happens forever. Sharing tokens + content + Lottie means the brand stays identical, and every CMS edit propagates everywhere with one publish. Skip this entirely if there's no native app — it's worse than nothing if the native team doesn't exist to maintain it.
 
-**Time:** **Native is multi-day work** — out of this spec's scope to estimate. Spec contract (file-level): **90 min** to author `HERO-NATIVE.md` with the contract, token mapping, content fields, Lottie usage, and analytics-naming rules so the native team can implement without further coordination.
+**Time:** **Native is multi-day work** — out of this spec's scope to estimate. Spec contract (file-level): **1h 30m** to author `HERO-NATIVE.md` with the contract, token mapping, content fields, Lottie usage, and analytics-naming rules so the native team can implement without further coordination.
 
 ---
 
@@ -98,7 +98,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** Sales reps send 30–100 emails/day each. A signature with a polished engineer photo + book-a-call CTA is a 24/7 lead funnel that costs nothing per send. Auto-generating from CMS means swapping the featured engineer updates every rep's signature next time their client loads the email (CDN cache permitting). Outlook table-layout is non-negotiable — it has 40%+ B2B market share and renders modern CSS as gibberish.
 
-**Time:** **75 min** — 30 min HTML/table layout + Outlook QA, 15 min Edge function, 10 min UTM wiring, 10 min plain-text fallback, 10 min litmus.com cross-client test.
+**Time:** **1h 15m** — 30m HTML/table layout + Outlook QA, 15m Edge function, 10m UTM wiring, 10m plain-text fallback, 10m litmus.com cross-client test.
 
 ---
 
@@ -115,7 +115,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** Sales decks live in PowerPoint/Keynote and salespeople ask for "a slide of the hero" weekly. A scripted export removes that recurring designer interrupt. Per-engineer PDFs let reps personalize a deck for a prospect in seconds. Subsetting fonts (only chars used in the deck) is the single biggest PDF size win — often 70%+ reduction.
 
-**Time:** **90 min** — 30 min Playwright script + viewport, 20 min print-mode stylesheet additions, 15 min branded footer + page-number template, 15 min file-size optimization (font subsetting + portrait compression), 10 min CLI wrapper.
+**Time:** **1h 30m** — 30m Playwright script + viewport, 20m print-mode stylesheet additions, 15m branded footer + page-number template, 15m file-size optimization (font subsetting + portrait compression), 10m CLI wrapper.
 
 ---
 
@@ -132,7 +132,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** Embeddable hero = free distribution. A partner who embeds your hero on their blog is a permanent lead funnel. PostMessage resize is the only correct way to handle dynamic iframe heights — without it the embed always shows a scrollbar (looks broken to readers) or huge whitespace (looks wrong to the partner). CSP must be tightened for embed-mode because you've given up control of the host page.
 
-**Time:** **120 min** — 30 min `/embed/hero` route + stripped UI, 25 min postMessage resize protocol, 20 min snippet generator UI, 20 min CSP tightening + server-side pixel, 15 min partner-side `embed.js` loader, 10 min cross-origin QA.
+**Time:** **2h** — 30m `/embed/hero` route + stripped UI, 25m postMessage resize protocol, 20m snippet generator UI, 20m CSP tightening + server-side pixel, 15m partner-side `embed.js` loader, 10m cross-origin QA.
 
 ---
 
@@ -147,7 +147,7 @@ Each story is a **single screenshot** for Chromatic / Percy visual regression (�
 
 **Reasoning:** "Should we do AMP?" is a recurring question that wastes engineering time every year. A documented decision short-circuits it. Most teams should skip AMP in 2026 and use Core Web Vitals (already in §24) to satisfy Google's speed signals — same outcome, one codebase.
 
-**Time:** **30 min** — 20 min decision doc with traffic data, 10 min calendar reminder for annual re-eval. If AMP is shipped: add ~8 hours for parallel template + ongoing maintenance.
+**Time:** **30m** — 20m decision doc with traffic data, 10m calendar reminder for annual re-eval. If AMP is shipped: add ~8 hours for parallel template + ongoing maintenance.
 
 ---
 
@@ -166,7 +166,7 @@ Add UA detection helper `isInAppBrowser()` that returns the brand string; gate o
 
 **Reasoning:** A large fraction of inbound traffic from social ads comes through these in-app browsers, not the system browser. The hero looks broken in TikTok-in-app (default fonts, frozen particles) → bounce rate spikes → ad spend wasted. UA-based feature gating costs ~10 LoC and recovers measurable conversion.
 
-**Time:** **60 min** — 15 min UA helper, 10 min particle gating, 10 min Calendly fallback for FB/IG, 15 min real-device testing across the four apps, 10 min documenting findings in `qa/in-app-browsers.md`.
+**Time:** **1h** — 15m UA helper, 10m particle gating, 10m Calendly fallback for FB/IG, 15m real-device testing across the four apps, 10m documenting findings in `qa/in-app-browsers.md`.
 
 ---
 
@@ -183,7 +183,7 @@ Add UA detection helper `isInAppBrowser()` that returns the brand string; gate o
 
 **Reasoning:** GDPR + CCPA + state privacy laws require this in practice, not just in policy. The "no degraded UI" rule is the single behavior that builds trust — sites that hide content or break features when you decline cookies train users to never accept them anywhere. Server-side `hero_view` counting via legitimate interest lets you keep traffic measurement without third-party cookies — the simplest legal path.
 
-**Time:** **60 min** — 15 min consent state wiring in `track()`, 15 min Calendly link-vs-modal switch, 10 min server-side first-party view counter, 10 min re-hydration on `consentChanged`, 10 min legal review pass with the privacy doc.
+**Time:** **1h** — 15m consent state wiring in `track()`, 15m Calendly link-vs-modal switch, 10m server-side first-party view counter, 10m re-hydration on `consentChanged`, 10m legal review pass with the privacy doc.
 
 ---
 
@@ -191,16 +191,16 @@ Add UA detection helper `isInAppBrowser()` that returns the brand string; gate o
 
 | # | Item | Time |
 |---|---|---|
-| 55 | A11y beyond WCAG AA | 60 min |
-| 56 | Storybook stories | 75 min |
-| 57 | Design tokens export | 75 min |
-| 58 | Native parity contract (file only) | 90 min |
-| 59 | Email signature variant | 75 min |
-| 60 | PDF / sales-deck export | 90 min |
-| 61 | Embeddable iframe widget | 120 min |
-| 62 | AMP decision (doc only) | 30 min |
-| 63 | In-app WebView tuning | 60 min |
-| 64 | Privacy / consent rendering | 60 min |
+| 55 | A11y beyond WCAG AA | 1h |
+| 56 | Storybook stories | 1h 15m |
+| 57 | Design tokens export | 1h 15m |
+| 58 | Native parity contract (file only) | 1h 30m |
+| 59 | Email signature variant | 1h 15m |
+| 60 | PDF / sales-deck export | 1h 30m |
+| 61 | Embeddable iframe widget | 2h |
+| 62 | AMP decision (doc only) | 30m |
+| 63 | In-app WebView tuning | 1h |
+| 64 | Privacy / consent rendering | 1h |
 | | **Subtotal** | **≈ 12h 15m** |
 
 Plus 25% buffer → realistic **~15h 20m** for this batch. Note §58 excludes the actual native build (multi-day per platform).
