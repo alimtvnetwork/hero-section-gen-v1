@@ -10,7 +10,7 @@ Continuation of Parts 1–3. Same **What / Reasoning / Time** format.
 
 | Asset | `Cache-Control` | Notes |
 |---|---|---|
-| HTML route (`/`) | `public, max-age=0, s-maxage=300, stale-while-revalidate=86400` | Edge cache 5 min, serve stale up to 24h while revalidating. |
+| HTML route (`/`) | `public, max-age=0, s-maxage=300, stale-while-revalidate=86400` | Edge cache 5m, serve stale up to 24h while revalidating. |
 | Fingerprinted JS/CSS (`/_build/*.[hash].js`) | `public, max-age=31536000, immutable` | Never re-fetch within a year. |
 | Portrait WebP/PNG (fingerprinted) | `public, max-age=31536000, immutable` | Same. |
 | Logo SVGs (inline) | n/a — bundled in HTML | — |
@@ -21,7 +21,7 @@ Deploy target: Cloudflare Workers (this template). Use the CDN's automatic Brotl
 
 **Reasoning:** Without `immutable` on fingerprinted assets, browsers still issue revalidation requests (304s) on every reload — wasted RTT that's visible on slow networks. SWR on the HTML means returning visitors get instant paint while the edge fetches a fresh copy in the background. HTTP-header preloads kick off before HTML parsing, shaving ~50–100ms off LCP vs `<link rel=preload>`.
 
-**Time:** **45 min** — 15 min headers config (wrangler.toml or _headers), 10 min HTTP-header preload wiring, 10 min verify with `curl -I` against deployed URL, 10 min Lighthouse re-run.
+**Time:** **45m** — 15m headers config (wrangler.toml or _headers), 10m HTTP-header preload wiring, 10m verify with `curl -I` against deployed URL, 10m Lighthouse re-run.
 
 ---
 
@@ -54,7 +54,7 @@ Inline SVGs are fine under `'self'`. Canvas particles are pure JS — no special
 
 **Reasoning:** A leaked third-party script (analytics, embedded video) is the most common XSS vector on marketing sites — CSP is the only defense that survives a compromise of one of those vendors. `frame-ancestors 'none'` prevents the page being iframed into a phishing wrapper. HSTS preload kills SSL-strip attacks for returning visitors.
 
-**Time:** **45 min** — 20 min CSP authoring + test against actual third parties used, 10 min headers config, 15 min Lighthouse + securityheaders.com verification + fix any blocked resources.
+**Time:** **45m** — 20m CSP authoring + test against actual third parties used, 10m headers config, 15m Lighthouse + securityheaders.com verification + fix any blocked resources.
 
 ---
 
@@ -70,7 +70,7 @@ Inline SVGs are fine under `'self'`. Canvas particles are pure JS — no special
 
 **Reasoning:** "Trusted by [logo]" without permission has triggered cease-and-desist letters within 48 hours of viral launches (multiple documented YC-era cases). Model releases protect from the engineer leaving the company and demanding takedown. Unsubstantiated stats are an FTC violation, not just bad taste.
 
-**Time:** **120 min** non-dev — 30 min email each brand, 30 min draft model release + signature, 30 min compile stats source-of-truth, 30 min privacy/cookie banner coordination. Most of this is calendar time, not focused work.
+**Time:** **2h** non-dev — 30m email each brand, 30m draft model release + signature, 30m compile stats source-of-truth, 30m privacy/cookie banner coordination. Most of this is calendar time, not focused work.
 
 ---
 
@@ -88,7 +88,7 @@ Inline SVGs are fine under `'self'`. Canvas particles are pure JS — no special
 
 **Reasoning:** Without a voice guide, every new engineer's quote drifts toward generic LinkedIn-speak ("passionate about delivering value") and the hero loses its distinctive feel within 3 carousel rotations. The forbidden-words list is the single highest-leverage rule — it kills 80% of slop in one pass.
 
-**Time:** **40 min** — 30 min authoring, 10 min review with founder/marketer for buy-in.
+**Time:** **40m** — 30m authoring, 10m review with founder/marketer for buy-in.
 
 ---
 
@@ -103,7 +103,7 @@ Inline SVGs are fine under `'self'`. Canvas particles are pure JS — no special
 | Lede / body / CTAs / chips | opacity, y | 0,16 → 1,0 | 600ms | same | +80ms each | once |
 | Portrait | opacity, scale | 0, 1.02 → 1, 1 | 900ms | `ease-out` | 200ms | once |
 | Rim-light A (halo) | opacity | 0.6 ↔ 1 | 6s | `ease-in-out` | 0 | infinite |
-| `Top 1%` pill glow | box-shadow opacity | 0.12 ↔ 0.28 | 4s | `ease-in-out` | 0 | infinite |
+| `Top 5%` pill glow | box-shadow opacity | 0.12 ↔ 0.28 | 4s | `ease-in-out` | 0 | infinite |
 | Particle dot | y | base → +H | 8–20s (per dot) | linear | random | infinite |
 | Carousel progress bar | scaleX | 0 → 1 | 6000ms | linear | 0 | reset per slide |
 | Slide cross-fade | opacity | 1 → 0 outgoing, 0 → 1 incoming | 250ms | `ease-in-out` | 0 | per advance |
@@ -114,7 +114,7 @@ Deliver as **(a) this table in markdown**, **(b) a Lottie export** of the rim-li
 
 **Reasoning:** Designers and devs misalign on timing constantly ("the entrance feels too slow" vs. "it's exactly 600ms like the spec says"). A canonical table ends the argument. A Lottie of the rim-light pulse means marketing can drop a polished version into product videos without a screen recording artifact.
 
-**Time:** **60 min** — 20 min table authoring (most values already exist in Parts 1–2), 30 min Lottie export from After Effects (or skip if no AE), 10 min JSON token sync.
+**Time:** **1h** — 20m table authoring (most values already exist in Parts 1–2), 30m Lottie export from After Effects (or skip if no AE), 10m JSON token sync.
 
 ---
 
@@ -131,7 +131,7 @@ Deliver as **(a) this table in markdown**, **(b) a Lottie export** of the rim-li
 
 **Reasoning:** Default-on audio is the fastest way to get a hero closed in a noisy office. Default-off + opt-in lets sound-design enthusiasts (the people who'll tweet about it) discover it. Tying suppression to `prefers-reduced-motion` is the only signal the platform gives for "this user doesn't want unexpected stimuli."
 
-**Time:** **50 min** — 15 min asset sourcing/editing, 15 min audio element + opt-in UI, 10 min localStorage persistence, 10 min suppression rules + QA across browsers.
+**Time:** **50m** — 15m asset sourcing/editing, 15m audio element + opt-in UI, 10m localStorage persistence, 10m suppression rules + QA across browsers.
 
 ---
 
@@ -158,7 +158,7 @@ Known watch-list: Safari iOS historically renders `mix-blend-mode: screen` over 
 
 **Reasoning:** "Works on my Chrome" is not shipping. Safari iOS is the single browser where you'll discover ~70% of cross-browser bugs in a hero like this (blend modes, DPR canvas, font metrics). Locking the matrix in writing forces the bug to be reported as a failed cell, not "it looks weird on my phone."
 
-**Time:** **120 min** — 90 min running the matrix on real devices/BrowserStack, 30 min documenting failures + fixes.
+**Time:** **2h** — 1h 30m running the matrix on real devices/BrowserStack, 30m documenting failures + fixes.
 
 ---
 
@@ -185,9 +185,9 @@ const { variant } = useExperiment('hero_2026q3', {
 
 Variants store: headline text + accent words, CTA label, optional featured engineer override. Variant assignment is sticky per visitor (cookie `exp_hero_2026q3=b`, 30-day TTL), survives auth. Every event in §29 auto-includes `experiment_id` + `variant_id`. Stop conditions documented: ≥95% confidence at 2000 conversions per arm, or 14 days, whichever first.
 
-**Reasoning:** Marketing will want to A/B test the headline in week 3. Baking the variant prop and event tagging in from day one is 40 min; retrofitting requires touching every hero file and every analytics event. Sticky cookie prevents the well-known "variant flipped mid-session, conversion attributed wrong" data-integrity bug.
+**Reasoning:** Marketing will want to A/B test the headline in week 3. Baking the variant prop and event tagging in from day one is 40m; retrofitting requires touching every hero file and every analytics event. Sticky cookie prevents the well-known "variant flipped mid-session, conversion attributed wrong" data-integrity bug.
 
-**Time:** **60 min** — 20 min `useExperiment` hook + cookie, 15 min variants config, 15 min event tagging passthrough, 10 min QA across browsers/incognito.
+**Time:** **1h** — 20m `useExperiment` hook + cookie, 15m variants config, 15m event tagging passthrough, 10m QA across browsers/incognito.
 
 ---
 
@@ -204,7 +204,7 @@ Variants store: headline text + accent words, CTA label, optional featured engin
 
 **Reasoning:** A 28h spec is intimidating; a 1-page README is the on-ramp. New contributors get to a productive first change in <10 minutes. The "where to start" matrix prevents the "I changed the color in 6 places and missed two" PR.
 
-**Time:** **30 min** — 20 min authoring, 10 min review with a fresh contributor (rubber-duck test).
+**Time:** **30m** — 20m authoring, 10m review with a fresh contributor (rubber-duck test).
 
 ---
 
@@ -220,7 +220,7 @@ Add a `FUTURE.md` tracking each item's adoption trigger and a checklist for retr
 
 **Reasoning:** The hero will be in production for 2–3 years. Knowing in advance which platform features will swap out which custom code prevents a costly "rewrite the hero with the new API" project — it becomes a 1-day swap instead.
 
-**Time:** **30 min** docs only — no implementation. 15 min FUTURE.md, 15 min linking the triggers from each affected spec section.
+**Time:** **30m** docs only — no implementation. 15m FUTURE.md, 15m linking the triggers from each affected spec section.
 
 ---
 
@@ -228,16 +228,16 @@ Add a `FUTURE.md` tracking each item's adoption trigger and a checklist for retr
 
 | # | Item | Time |
 |---|---|---|
-| 35 | Deployment & caching | 45 min |
-| 36 | Security headers / CSP | 45 min |
-| 37 | Legal & trademark sign-off | 120 min (mostly non-dev) |
-| 38 | Voice & tone guide | 40 min |
-| 39 | Motion-design spec sheet | 60 min |
-| 40 | Optional micro-sound | 50 min |
-| 41 | Per-browser / OS QA matrix | 120 min |
-| 42 | Experimentation framework | 60 min |
-| 43 | Contributor README | 30 min |
-| 44 | Future-proofing docs | 30 min |
+| 35 | Deployment & caching | 45m |
+| 36 | Security headers / CSP | 45m |
+| 37 | Legal & trademark sign-off | 2h (mostly non-dev) |
+| 38 | Voice & tone guide | 40m |
+| 39 | Motion-design spec sheet | 1h |
+| 40 | Optional micro-sound | 50m |
+| 41 | Per-browser / OS QA matrix | 2h |
+| 42 | Experimentation framework | 1h |
+| 43 | Contributor README | 30m |
+| 44 | Future-proofing docs | 30m |
 | | **Subtotal** | **≈ 10h 20m** |
 
 Plus 25% buffer → realistic **~13h** for this batch (note: §37 + §41 are calendar time / device testing, not focused coding).

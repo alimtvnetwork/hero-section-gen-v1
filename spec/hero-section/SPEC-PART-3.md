@@ -8,7 +8,7 @@ Continuation of `SPEC.md` and `SPEC-PART-2.md`. Same **What / Reasoning / Time**
 
 **What:** In the route's `head()`:
 
-- `<title>`: `Scale Your Startup with Top 1% Vetted Engineers — [Brand]` (≤60 chars).
+- `<title>`: `Scale Your Startup with Top 5% Vetted Engineers — [Brand]` (≤60 chars).
 - `<meta name="description">`: `Offshore engineering teams built for fast-moving startups across the USA, Europe, and Asia. Book a call with vetted senior engineers.` (≤160 chars).
 - Open Graph: `og:title`, `og:description`, `og:type=website`, `og:image` (1200×630 generated screenshot of this hero), `og:url`, `og:site_name`.
 - Twitter: `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`.
@@ -20,7 +20,7 @@ Continuation of `SPEC.md` and `SPEC-PART-2.md`. Same **What / Reasoning / Time**
 
 **Reasoning:** Heroes drive the OG preview people actually see when the link is pasted into Slack/LinkedIn/Twitter — that preview converts at 2–3× a plain link. Structured `Person` data is what lets Google show the engineer's name as a rich result; without it the page indexes as generic agency boilerplate.
 
-**Time:** **45 min** — 15 min metadata, 15 min OG image generation + upload, 15 min JSON-LD authoring + validation in Google's Rich Results Test.
+**Time:** **45m** — 15m metadata, 15m OG image generation + upload, 15m JSON-LD authoring + validation in Google's Rich Results Test.
 
 ---
 
@@ -34,9 +34,9 @@ Continuation of `SPEC.md` and `SPEC-PART-2.md`. Same **What / Reasoning / Time**
 - Light-theme stub: provide a `data-theme="light"` override block with placeholder values + a `TODO` comment — do not ship it visible, but keep the token surface symmetric.
 - The portrait + rim light remain a **dark composition** even under a light theme (treat as imagery, like a movie poster), so wrap it in a `bg-[--bg-portrait]` container that stays near-black regardless of theme.
 
-**Reasoning:** Retrofitting a theme later means hunting every hex literal across components — a multi-day chore. Defining the token contract now is ~30 min; doing it later is days. Keeping the portrait container dark in both themes is the same trick Apple uses on product hero shots: the imagery is intentional dark art, not a "theme bug."
+**Reasoning:** Retrofitting a theme later means hunting every hex literal across components — a multi-day chore. Defining the token contract now is ~30m; doing it later is days. Keeping the portrait container dark in both themes is the same trick Apple uses on product hero shots: the imagery is intentional dark art, not a "theme bug."
 
-**Time:** **30 min** — 15 min token audit + extraction, 10 min light-theme stub, 5 min `color-scheme` + portrait container.
+**Time:** **30m** — 15m token audit + extraction, 10m light-theme stub, 5m `color-scheme` + portrait container.
 
 ---
 
@@ -52,7 +52,7 @@ Continuation of `SPEC.md` and `SPEC-PART-2.md`. Same **What / Reasoning / Time**
 
 **Reasoning:** Hardcoded `<span class="text-accent">Solve</span>` looks fine in English but breaks in any language where the highlighted concept lands on different words. ICU rich-text formatting is the only way translators can move the accent. German tests for the inevitable button-overflow bug; Arabic tests every mirror rule at once.
 
-**Time:** **90 min** — 25 min string extraction + provider wiring, 20 min ICU rich-text for accents, 25 min RTL mirror rules, 20 min DE/AR review pass.
+**Time:** **1h 30m** — 25m string extraction + provider wiring, 20m ICU rich-text for accents, 25m RTL mirror rules, 20m DE/AR review pass.
 
 ---
 
@@ -70,7 +70,7 @@ Default: **Calendly modal** opens on click with the Calendly inline widget. Prec
 
 **Reasoning:** A modal keeps the user in context (no page transition = ~20% higher booking conversion in published case studies). UTM passthrough is the single feature marketing will ask for in week 2; baking it in now avoids a refactor. The 3s fallback covers ad-blocked Calendly, which silently kills bookings otherwise.
 
-**Time:** **60 min** — 15 min modal component, 15 min Calendly integration + preconnect, 15 min UTM passthrough + analytics, 15 min fallback + QA with ad-blocker enabled.
+**Time:** **1h** — 15m modal component, 15m Calendly integration + preconnect, 15m UTM passthrough + analytics, 15m fallback + QA with ad-blocker enabled.
 
 ---
 
@@ -91,7 +91,7 @@ Use IntersectionObserver for view-based events (no scroll listeners). Provider-a
 
 **Reasoning:** Naming events ad-hoc creates a junk-data taxonomy that requires a Q2 cleanup project. Standardizing now (with the `hero_` prefix and snake_case) keeps dashboards usable at 100+ events. IntersectionObserver-based view events are 10× cheaper than scroll listeners and don't jank the carousel.
 
-**Time:** **45 min** — 10 min `track()` wrapper, 20 min wiring all 6 events, 10 min IntersectionObserver setup, 5 min docs in `analytics/events.md`.
+**Time:** **45m** — 10m `track()` wrapper, 20m wiring all 6 events, 10m IntersectionObserver setup, 5m docs in `analytics/events.md`.
 
 ---
 
@@ -108,9 +108,9 @@ Use IntersectionObserver for view-based events (no scroll listeners). Provider-a
 | JavaScript disabled | Render the first slide as static HTML; carousel controls hidden via `<noscript>` CSS. CTAs still work (anchor tags). |
 | Particle canvas crashes (very old browser) | `try/catch` around init; on error, remove the canvas node — visual loss is negligible, no console spam. |
 
-**Reasoning:** Hero failure modes are the most-screenshotted bug class because they're above-the-fold. A broken-image icon next to "Top 1% Vetted Engineer" is a credibility-destroying screenshot. Defining every failure as a layout-preserving graceful degrade is cheap insurance.
+**Reasoning:** Hero failure modes are the most-screenshotted bug class because they're above-the-fold. A broken-image icon next to "Top 5% Vetted Engineer" is a credibility-destroying screenshot. Defining every failure as a layout-preserving graceful degrade is cheap insurance.
 
-**Time:** **50 min** — 15 min portrait fallback gradient + mask, 15 min carousel empty/single states, 10 min font-swap stability test, 10 min `<noscript>` + try/catch guards.
+**Time:** **50m** — 15m portrait fallback gradient + mask, 15m carousel empty/single states, 10m font-swap stability test, 10m `<noscript>` + try/catch guards.
 
 ---
 
@@ -125,9 +125,9 @@ Use IntersectionObserver for view-based events (no scroll listeners). Provider-a
 - Show primary CTA as text + URL: `Book a Call (https://example.com/book)` via `a[href]::after { content: " (" attr(href) ")"; }`.
 - Page-break-inside: avoid on the stat row.
 
-**Reasoning:** Enterprise sales decks frequently print the landing page as a one-pager handout. Without a print sheet you get a totally black A4 sheet (literally just ink-soaked dark mode) — embarrassing in a boardroom. Print is 90 min you pay once, forever.
+**Reasoning:** Enterprise sales decks frequently print the landing page as a one-pager handout. Without a print sheet you get a totally black A4 sheet (literally just ink-soaked dark mode) — embarrassing in a boardroom. Print is 1h 30m you pay once, forever.
 
-**Time:** **40 min** — 20 min `@media print` block, 10 min portrait grayscale + sizing, 10 min print preview QA in Chrome/Safari.
+**Time:** **40m** — 20m `@media print` block, 10m portrait grayscale + sizing, 10m print preview QA in Chrome/Safari.
 
 ---
 
@@ -143,7 +143,7 @@ CI gates: visual diffs require explicit approval; axe failures block merge; unit
 
 **Reasoning:** Visual regression is the only test that catches the off-by-2px baseline drift from §15. Axe catches the regression where someone removes `aria-live` from the carousel during a refactor. Unit tests on the state machine catch the auto-advance-doesn't-reset bug, which is impossible to spot in code review.
 
-**Time:** **90 min** — 30 min Playwright setup + 4 viewport snapshots, 20 min axe integration + assertions, 30 min carousel unit tests, 10 min CI wiring.
+**Time:** **1h 30m** — 30m Playwright setup + 4 viewport snapshots, 20m axe integration + assertions, 30m carousel unit tests, 10m CI wiring.
 
 ---
 
@@ -162,7 +162,7 @@ type Engineer = {
   quote: string;
   linkedinUrl?: string;
   location?: string;     // "Dhaka, Bangladesh"
-  badge?: string;        // "Top 1% Vetted Engineer"
+  badge?: string;        // "Top 5% Vetted Engineer"
 };
 
 type Stat = { icon: LucideIcon; value: string; label: string };
@@ -187,7 +187,7 @@ Rules: no `className` prop on the root (style via tokens only); accent words are
 
 **Reasoning:** A typed contract is the difference between a component that gets reused across 4 landing pages and one that gets copy-pasted then drifts. Forbidding `className` on the root prevents the "every consumer adds `!important` overrides" anti-pattern. Accent-words-as-array decouples highlighting from string-splitting for i18n (§27).
 
-**Time:** **40 min** — 20 min type design + JSDoc, 10 min runtime guards (stat count, engineer count), 10 min consumer-side smoke test.
+**Time:** **40m** — 20m type design + JSDoc, 10m runtime guards (stat count, engineer count), 10m consumer-side smoke test.
 
 ---
 
@@ -223,7 +223,7 @@ Separate `engineer` document type owns name, role, portrait (Sanity image with h
 
 **Reasoning:** Marketing will absolutely want to swap the engineer of the month, A/B test headlines, and rotate the trusted-by stats without filing a ticket. Field-length validators stop the "headline is 200 chars and now wraps to 6 lines" bug at editor time, not at QA time. Hotspot on the portrait lets editors pick a new photo and have the rim light still land on the face.
 
-**Time:** **75 min** — 20 min hero schema, 20 min engineer schema + hotspot, 15 min stat-chip schema + icon picker, 10 min preview pane wiring, 10 min editor smoke test.
+**Time:** **1h 15m** — 20m hero schema, 20m engineer schema + hotspot, 15m stat-chip schema + icon picker, 10m preview pane wiring, 10m editor smoke test.
 
 ---
 
@@ -231,16 +231,16 @@ Separate `engineer` document type owns name, role, portrait (Sanity image with h
 
 | # | Item | Time |
 |---|---|---|
-| 25 | SEO & metadata | 45 min |
-| 26 | Theme strategy | 30 min |
-| 27 | i18n & RTL | 90 min |
-| 28 | `Book a Call` lead capture | 60 min |
-| 29 | Analytics & event taxonomy | 45 min |
-| 30 | Error & empty states | 50 min |
-| 31 | Print stylesheet | 40 min |
-| 32 | Testing strategy | 90 min |
-| 33 | Component API & prop contracts | 40 min |
-| 34 | CMS content schema | 75 min |
+| 25 | SEO & metadata | 45m |
+| 26 | Theme strategy | 30m |
+| 27 | i18n & RTL | 1h 30m |
+| 28 | `Book a Call` lead capture | 1h |
+| 29 | Analytics & event taxonomy | 45m |
+| 30 | Error & empty states | 50m |
+| 31 | Print stylesheet | 40m |
+| 32 | Testing strategy | 1h 30m |
+| 33 | Component API & prop contracts | 40m |
+| 34 | CMS content schema | 1h 15m |
 | | **Subtotal** | **≈ 9h 25m** |
 
 Plus 25% buffer → realistic **~11h 45m** for this batch.

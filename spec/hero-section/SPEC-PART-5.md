@@ -18,7 +18,7 @@ CMS-only content changes (new engineer slide, new headline copy) bump a separate
 
 **Reasoning:** Without a written semver rule, every consumer guesses "is this a major?" differently and updates become risky. Separating content-version from code-version stops marketing edits from triggering false major bumps that block downstream consumers from auto-updating.
 
-**Time:** **30 min** — 15 min `CHANGELOG.md` scaffold + first entry, 10 min PR template + CI lint rule, 5 min docs in README.
+**Time:** **30m** — 15m `CHANGELOG.md` scaffold + first entry, 10m PR template + CI lint rule, 5m docs in README.
 
 ---
 
@@ -34,7 +34,7 @@ CMS-only content changes (new engineer slide, new headline copy) bump a separate
 
 **Reasoning:** The single most expensive design-system mistake is removing a prop someone still uses. A documented N-1 window + telemetry-confirmed zero usage turns a coin-flip into a safe operation. Codemods turn 4-hour grep-and-replace chores into 30-second commands and dramatically increase upgrade adoption.
 
-**Time:** **45 min** docs + tooling — 20 min `MIGRATION.md` template + first entry, 15 min `@deprecated` + console.warn helper, 10 min codemod scaffold (real codemod authored per-change later).
+**Time:** **45m** docs + tooling — 20m `MIGRATION.md` template + first entry, 15m `@deprecated` + console.warn helper, 10m codemod scaffold (real codemod authored per-change later).
 
 ---
 
@@ -51,7 +51,7 @@ CMS-only content changes (new engineer slide, new headline copy) bump a separate
 
 **Reasoning:** A 302 instead of 301 silently loses ranking authority — discovered weeks later as a traffic drop. "Forever 301s" is the cheapest insurance against an SEO mistake you can't easily undo. OG image stability via content-hash URL prevents the "old Slack previews show a broken image" embarrassment after a redesign.
 
-**Time:** **45 min** — 20 min Workers redirect rule + test, 10 min sitemap update logic, 10 min link-checker CI step, 5 min docs entry.
+**Time:** **45m** — 20m Workers redirect rule + test, 10m sitemap update logic, 10m link-checker CI step, 5m docs entry.
 
 ---
 
@@ -64,16 +64,16 @@ CMS-only content changes (new engineer slide, new headline copy) bump a separate
 | Frontend JS error | Sentry, filtered by `tags.component:hero` | >50 events/hr OR new error type | P2 (Slack) |
 | LCP P75 regression | Web Vitals → analytics → daily rollup | P75 > 2.5s sustained 1h | P2 (Slack) |
 | CLS P75 regression | same | P75 > 0.1 sustained 1h | P2 (Slack) |
-| Calendly script load failure | `error` event on `<script>` | failure rate > 5% over 15 min | P1 (PagerDuty) |
-| Portrait image 404 | CDN logs | any non-zero rate over 5 min | P1 (PagerDuty) |
-| Carousel auto-advance stuck (no `hero_slide_change` events for 10 min while `hero_view` events present) | analytics anomaly detection | continuous 10 min | P3 (Slack) |
+| Calendly script load failure | `error` event on `<script>` | failure rate > 5% over 15m | P1 (PagerDuty) |
+| Portrait image 404 | CDN logs | any non-zero rate over 5m | P1 (PagerDuty) |
+| Carousel auto-advance stuck (no `hero_slide_change` events for 10m while `hero_view` events present) | analytics anomaly detection | continuous 10m | P3 (Slack) |
 | CSP violation reports | `report-uri` endpoint | >20/hr OR new directive | P2 (Slack) |
 
 Sentry release tagging: every deploy tags `hero@<semver>` so regressions are bisectable to a specific release within seconds.
 
 **Reasoning:** Hero failures hurt conversion immediately and are invisible without alerts — the team often finds out via a sales rep noticing fewer demos booked. Tying alerts to specific symptoms (Calendly failure → P1) instead of generic "errors up" routes the page to the right responder. CSP reports are the canary for an XSS attempt in progress.
 
-**Time:** **75 min** — 20 min Sentry tagging + release wiring, 20 min Web Vitals → analytics rollup, 15 min Calendly + image-404 alerts, 10 min CSP report-uri endpoint, 10 min PagerDuty/Slack routing config.
+**Time:** **1h 15m** — 20m Sentry tagging + release wiring, 20m Web Vitals → analytics rollup, 15m Calendly + image-404 alerts, 10m CSP report-uri endpoint, 10m PagerDuty/Slack routing config.
 
 ---
 
@@ -98,7 +98,7 @@ Decision triggers documented:
 
 **Reasoning:** Marketing teams worry that "best-in-class hero" implies "expensive to serve" — the actual numbers show even 1M views/mo costs <$35 infra. Documenting this kills the recurring "should we strip the particles for cost" conversation. Decision triggers convert "we should monitor cost" hand-waving into specific actionable thresholds.
 
-**Time:** **30 min** — 20 min spreadsheet authoring, 10 min triggers + docs.
+**Time:** **30m** — 20m spreadsheet authoring, 10m triggers + docs.
 
 ---
 
@@ -116,7 +116,7 @@ When sunset triggers fire, run the **retirement playbook**: archive design asset
 
 **Reasoning:** Designs without sunset criteria linger past their useful life because no one wants to be the person who says "kill it." Numeric triggers depersonalize the decision and make it routine. The retirement playbook prevents the common "we redesigned but kept four orphan files referencing the old hero" cleanup project.
 
-**Time:** **30 min** — 20 min criteria doc, 10 min retirement playbook template.
+**Time:** **30m** — 20m criteria doc, 10m retirement playbook template.
 
 ---
 
@@ -133,7 +133,7 @@ When sunset triggers fire, run the **retirement playbook**: archive design asset
 
 **Reasoning:** Content always exceeds initial assumptions within the first quarter of CMS use. Defining defensive rules now avoids the recurring "the new engineer's name broke the hero on mobile" hotfix. `text-wrap: balance` is a one-line CSS property that single-handedly kills 80% of headline orphan complaints.
 
-**Time:** **40 min** — 15 min wrap + ellipsis rules, 10 min initials fallback component, 5 min `text-wrap: balance`, 10 min stat width handling.
+**Time:** **40m** — 15m wrap + ellipsis rules, 10m initials fallback component, 5m `text-wrap: balance`, 10m stat width handling.
 
 ---
 
@@ -149,7 +149,7 @@ When sunset triggers fire, run the **retirement playbook**: archive design asset
 
 **Reasoning:** Six months later when someone asks "regenerate this portrait but with glasses removed," nobody remembers which model or prompt produced it. Versioned prompts make the image reproducible and the variants consistent. License snapshots protect from the now-routine "the AI vendor changed their commercial terms retroactively" surprise.
 
-**Time:** **30 min** — 10 min metadata schema, 10 min PR-template sign-off field, 10 min license snapshot doc.
+**Time:** **30m** — 10m metadata schema, 10m PR-template sign-off field, 10m license snapshot doc.
 
 ---
 
@@ -164,7 +164,7 @@ When sunset triggers fire, run the **retirement playbook**: archive design asset
 
 **Reasoning:** "We can fix it forward" sounds disciplined and fails in practice during a real incident at 2 AM. A pre-staged kill switch + 60s rollback + numbered runbook reduces mean-time-to-recovery from hours to minutes. The static safe-mode hero is ugly but functional — preserves Calendly bookings even when the dynamic version is down.
 
-**Time:** **60 min** — 20 min safe-mode component + flag plumbing, 15 min health check endpoint, 15 min runbook authoring, 10 min on-call dry run.
+**Time:** **1h** — 20m safe-mode component + flag plumbing, 15m health check endpoint, 15m runbook authoring, 10m on-call dry run.
 
 ---
 
@@ -191,7 +191,7 @@ Owner per checkbox is named (not "team"). Sign-off by Eng Lead + Design Lead + M
 
 **Reasoning:** The launch is the highest-risk moment. A single checklist with named owners turns "did we test that?" into a paper trail and forces accountability. Acknowledged on-call within 48h covers the most common post-launch incident window.
 
-**Time:** **30 min** prep — 20 min checklist authoring + owner assignment, 10 min stakeholder review. Actual sign-off day adds 2–4h of running through the list.
+**Time:** **30m** prep — 20m checklist authoring + owner assignment, 10m stakeholder review. Actual sign-off day adds 2–4h of running through the list.
 
 ---
 
@@ -199,16 +199,16 @@ Owner per checkbox is named (not "team"). Sign-off by Eng Lead + Design Lead + M
 
 | # | Item | Time |
 |---|---|---|
-| 45 | Changelog & versioning | 30 min |
-| 46 | Deprecation & migration | 45 min |
-| 47 | URL / redirect policy | 45 min |
-| 48 | Observability & alerting | 75 min |
-| 49 | Cost model | 30 min |
-| 50 | Sunset criteria | 30 min |
-| 51 | Edge-case content rules | 40 min |
-| 52 | Image-gen reproducibility | 30 min |
-| 53 | Disaster recovery & rollback | 60 min |
-| 54 | Final acceptance & launch gate | 30 min (+ 2–4h on launch day) |
+| 45 | Changelog & versioning | 30m |
+| 46 | Deprecation & migration | 45m |
+| 47 | URL / redirect policy | 45m |
+| 48 | Observability & alerting | 1h 15m |
+| 49 | Cost model | 30m |
+| 50 | Sunset criteria | 30m |
+| 51 | Edge-case content rules | 40m |
+| 52 | Image-gen reproducibility | 30m |
+| 53 | Disaster recovery & rollback | 1h |
+| 54 | Final acceptance & launch gate | 30m (+ 2–4h on launch day) |
 | | **Subtotal** | **≈ 6h 55m** |
 
 Plus 25% buffer → realistic **~8h 40m** for this batch (not counting launch day itself).
