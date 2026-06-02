@@ -1,4 +1,4 @@
-# Project README
+# Project Readme
 
 > **AI agents: read `.lovable/what-to-read.md` FIRST.** It is the single entry point
 > that tells you which files to read, in what order, before you write any code,
@@ -15,7 +15,7 @@ Lovable Cloud (Supabase under the hood). Edge runtime is Cloudflare Workers
 
 ```
 .
-├── README.md                  ← you are here (high-level pointer only)
+├── readme.md                  ← you are here (high-level pointer only)
 ├── .lovable/                  ← AI memory, plans, prompts, guidelines
 │   ├── what-to-read.md        ← AI ENTRY POINT — read first, every session
 │   ├── coding-guidelines.md   ← code rules (≤8-line fns, no `any`, etc.)
@@ -37,7 +37,7 @@ Lovable Cloud (Supabase under the hood). Edge runtime is Cloudflare Workers
 │   ├── solved-issues/         ← closed bugs w/ Solution + Learning
 │   └── cicd-issues/           ← CI/CD-specific issues
 ├── spec/                      ← product/feature specs
-│   └── hero-section/          ← canonical hero spec (start at 00-index.md)
+│   └── 01-rise-of-asia/01-homepage-hero-section/          ← canonical hero spec (start at 00-index.md)
 ├── spec-issues/               ← spec gap-analysis / audit phases
 ├── src/
 │   ├── routes/                ← file-based routes (__root.tsx, index.tsx, ...)
