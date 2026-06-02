@@ -1,6 +1,6 @@
 # Hero Section — Implementation Spec
 
-Reference image: `./01-hero.png`
+Reference image: `./00-hero-canonical.png`
 
 Target stack: **HTML + Tailwind CSS** (utility classes), optional **Three.js** for the subtle background particle field, optional **Framer Motion / GSAP** for entrance + carousel animations. Output must be pixel-faithful to the reference at a 1440×900 desktop viewport, and gracefully responsive below 1024px.
 
@@ -120,10 +120,10 @@ All amber accents must share the same hue; do NOT introduce red, pink, or yellow
 
 The right column is a vertical stack, left-aligned text, ~320px wide. There is NO bordered card — items float on the black background, separated by generous spacing.
 
-1. **"Top 1% Vetted Engineer" pill** at the top:
+1. **"Top 5% Vetted Engineer" pill** at the top:
    - Pill: background `--bg-elev`, border `1px solid var(--border-strong)`, radius `rounded-full`, padding `px-4 py-2`.
    - Leading amber crown icon (Lucide `crown`), 16px, color `--accent`.
-   - Text: `Top 1% Vetted Engineer`, 13px, weight 500, white.
+   - Text: `Top 5% Vetted Engineer`, 13px, weight 500, white.
    - Subtle amber outer glow: `box-shadow: 0 0 24px rgba(245,165,36,0.18)`.
 2. ~120px vertical gap (let the portrait breathe) → **Name block**:
    - `Alim Ul Karim` — 28px, weight 600, white.
@@ -176,7 +176,7 @@ The right column is a vertical stack, left-aligned text, ~320px wide. There is N
 1. On mount, stagger the left column children top-to-bottom with `y: 16 → 0`, `opacity: 0 → 1`, 80ms stagger, 600ms duration, easing `cubic-bezier(0.22, 1, 0.36, 1)`.
 2. Portrait fades in with `opacity: 0 → 1` over 900ms and `scale: 1.02 → 1` (subtle settle).
 3. Rim-light radial gradient pulses gently: `opacity: 0.6 ↔ 1` over 6s, infinite, ease-in-out.
-4. "Top 1% Vetted Engineer" pill: amber glow breathes (`box-shadow` opacity 0.12 ↔ 0.28) over 4s.
+4. "Top 5% Vetted Engineer" pill: amber glow breathes (`box-shadow` opacity 0.12 ↔ 0.28) over 4s.
 5. Carousel auto-advances every 6s, active segment animates its `width` from 0 → full as a progress bar (use `transform: scaleX`), reset on advance.
 6. CTA arrow: on hover, translate `x: +4px` over 200ms; on press, scale `0.98`.
 7. Logo strip: respect `prefers-reduced-motion` — disable all loops and stagger.
@@ -226,7 +226,7 @@ The right column is a vertical stack, left-aligned text, ~320px wide. There is N
 
     <!-- RIGHT: profile -->
     <div class="col-span-3 flex flex-col">
-      <div class="pill">[crown] Top 1% Vetted Engineer</div>
+      <div class="pill">[crown] Top 5% Vetted Engineer</div>
       <div class="spacer"></div>
       <div class="name-block">[name][role][sub-role]</div>
       <blockquote>“…”</blockquote>

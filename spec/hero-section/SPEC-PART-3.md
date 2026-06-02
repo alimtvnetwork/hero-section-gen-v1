@@ -8,7 +8,7 @@ Continuation of `SPEC.md` and `SPEC-PART-2.md`. Same **What / Reasoning / Time**
 
 **What:** In the route's `head()`:
 
-- `<title>`: `Scale Your Startup with Top 1% Vetted Engineers — [Brand]` (≤60 chars).
+- `<title>`: `Scale Your Startup with Top 5% Vetted Engineers — [Brand]` (≤60 chars).
 - `<meta name="description">`: `Offshore engineering teams built for fast-moving startups across the USA, Europe, and Asia. Book a call with vetted senior engineers.` (≤160 chars).
 - Open Graph: `og:title`, `og:description`, `og:type=website`, `og:image` (1200×630 generated screenshot of this hero), `og:url`, `og:site_name`.
 - Twitter: `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`.
@@ -108,7 +108,7 @@ Use IntersectionObserver for view-based events (no scroll listeners). Provider-a
 | JavaScript disabled | Render the first slide as static HTML; carousel controls hidden via `<noscript>` CSS. CTAs still work (anchor tags). |
 | Particle canvas crashes (very old browser) | `try/catch` around init; on error, remove the canvas node — visual loss is negligible, no console spam. |
 
-**Reasoning:** Hero failure modes are the most-screenshotted bug class because they're above-the-fold. A broken-image icon next to "Top 1% Vetted Engineer" is a credibility-destroying screenshot. Defining every failure as a layout-preserving graceful degrade is cheap insurance.
+**Reasoning:** Hero failure modes are the most-screenshotted bug class because they're above-the-fold. A broken-image icon next to "Top 5% Vetted Engineer" is a credibility-destroying screenshot. Defining every failure as a layout-preserving graceful degrade is cheap insurance.
 
 **Time:** **50 min** — 15 min portrait fallback gradient + mask, 15 min carousel empty/single states, 10 min font-swap stability test, 10 min `<noscript>` + try/catch guards.
 
@@ -162,7 +162,7 @@ type Engineer = {
   quote: string;
   linkedinUrl?: string;
   location?: string;     // "Dhaka, Bangladesh"
-  badge?: string;        // "Top 1% Vetted Engineer"
+  badge?: string;        // "Top 5% Vetted Engineer"
 };
 
 type Stat = { icon: LucideIcon; value: string; label: string };

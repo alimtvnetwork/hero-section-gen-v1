@@ -103,7 +103,7 @@ Inline SVGs are fine under `'self'`. Canvas particles are pure JS — no special
 | Lede / body / CTAs / chips | opacity, y | 0,16 → 1,0 | 600ms | same | +80ms each | once |
 | Portrait | opacity, scale | 0, 1.02 → 1, 1 | 900ms | `ease-out` | 200ms | once |
 | Rim-light A (halo) | opacity | 0.6 ↔ 1 | 6s | `ease-in-out` | 0 | infinite |
-| `Top 1%` pill glow | box-shadow opacity | 0.12 ↔ 0.28 | 4s | `ease-in-out` | 0 | infinite |
+| `Top 5%` pill glow | box-shadow opacity | 0.12 ↔ 0.28 | 4s | `ease-in-out` | 0 | infinite |
 | Particle dot | y | base → +H | 8–20s (per dot) | linear | random | infinite |
 | Carousel progress bar | scaleX | 0 → 1 | 6000ms | linear | 0 | reset per slide |
 | Slide cross-fade | opacity | 1 → 0 outgoing, 0 → 1 incoming | 250ms | `ease-in-out` | 0 | per advance |
