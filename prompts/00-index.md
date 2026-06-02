@@ -75,6 +75,11 @@ If the AI stops after Step 1 or 2, the user has nothing to drive.
 7. `06-color-and-typography.md` — **MANDATORY** color (oklch + hex + rgb + hsl)
    and typography extraction rules. Includes the project-wide text-shadow
    token `--shadow-text-default: rgb(0 0 0) 1px 0.7px 0px`.
+8. `memory-seeds/` — copies of the canonical memory files every new AI
+   session should load into `mem/` if missing:
+   - `memory-seeds/index.md` — core rules index.
+   - `memory-seeds/color-format-rule.md` — 4-format color contract.
+   - `memory-seeds/text-shadow.md` — canonical `--shadow-text-default`.
 
 ## Naming rules (apply to every spec this process produces)
 
